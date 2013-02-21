@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-LGDISPortal::Application.load_tasks
+LgdisPortal::Application.load_tasks

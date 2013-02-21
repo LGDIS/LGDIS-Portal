@@ -48,7 +48,7 @@ test:
 
 production:
   adapter: postgresql
-  database: LGDIS-Portal_test
+  database: LGDIS-Portal
   host: localhost
   username: "railsuser"
   password: ""
