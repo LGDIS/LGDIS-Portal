@@ -7,7 +7,7 @@ gem 'rails', '3.2.12'
 
 # Pg is the Ruby interface to the PostgreSQL RDBMS.
 # It works with PostgreSQL 8.3 and later.
-gem 'pg', '0.14.1'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
