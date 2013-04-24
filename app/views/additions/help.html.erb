@@ -1,0 +1,79 @@
+<% content_for :javascripts do %>
+  <script type="text/javascript">
+    function closeWindow(){
+      if(!window.opener || window.opener.closed){
+        window.opener = window;
+        var win = window.open(location.href,"_self");
+        win.close();
+      }else{
+        var win = window.open("","_self");
+        win.opener = window;
+        win.close()
+      }
+    }
+  </script>
+<% end %>
+
+<section id="help_content">
+  <div class="wrap">
+    <h3 class="title"><%= ::CONF['additions']['data'][@id]['help'][@item] %></h3>
+    <% if @item=="flood" -%>
+      <div class="help">
+        <p>この地図は、北上川、旧北上川、江合川が大雨によって増水して、堤防の決壊などにより氾濫した場合に想定される浸水の予想区域と浸水深、宮城県が公表した土砂災害のおそれのある箇所を示したものです。</p>
+        <p>※浸水予測のために想定した雨量は以下のとおりです。</p>
+        <dl class="assume">
+          <dt>北上川</dt>
+          <dd>2日間の雨量が194mm<br />（100年に一度の確率で起こると想定される豪雨）</dd>
+          <dt>旧北上川</dt>
+          <dd>2日間の雨量が267mm<br />（150年に一度の確率で起こると想定される豪雨）</dd>
+          <dt>江合川</dt>
+          <dd>2日間の雨量が296mm<br />（100年に一度の確率で起こると想定される豪雨）</dd>
+        </dl>
+        <p>浸水の着色の無い地域でも、状況によって浸水するおそれがありますので、注意してください。洪水に対しては事前の備えが大切です。いざというときに備え、あなたの家から避難場所までの経路、家族の連絡先などを確認しておき、また、大雨による浸水の恐れのある場所などを把握しておきましょう。</p>
+        <p>危険を感じた時には早めに自主的に避難場所への移動を心がけ、市からの避難勧告や避難指示が出された時には、速やかに避難してください。</p>
+        <dl class="source">
+          <dt>土砂災害のデータ</dt>
+          <dd>宮城県　東部土木事務所（2002）より引用</dd>
+          <dt>浸水想定区域図/国土交通省　北上河川下流事務所編</dt>
+          <dd>「北上川水系北上川浸水想定区域図（石巻市）」（2002）</dd>
+          <dd>「北上川水系旧北上川浸水想定区域図（石巻市）」（2005）</dd>
+          <dd>「北上川水系江合川浸水想定区域図（石巻市）」（2002）より引用</dd>
+        </dl>
+        <h4 class="title">浸水深の見方</h4>
+        <%= image_tag("/assets/shinsui.gif", :size => "482x193", :alt => "浸水深の見方", :class => "img") %>
+      </div>
+    <% end -%>
+    <% if @item=="tidalwave" -%>
+      <div class="help">
+        <p>この地図は、宮城県が実施した「第三次地震被害想定調査」の結果等に基づいて、宮城県沖地震（連動型）に伴い津波が発生した場合の市内の予想浸水区域を示したものです。</p>
+        <p>浸水の着色の無い地域でも、状況によって浸水するおそれがありますので、注意してください。津波に対してはできるだけ早く安全な高台に避難することが大切です。いざというときに備え、あなたの家から避難場所までの経路、家族の連絡先などを確認しておき、また、危ない場所などを把握しておきましょう。</p>
+        <p>強い揺れを感じたら、すぐにテレビやラジオなどで津波注意報や警報を確認し、また、市からの避難勧告や避難指示が出された時には、直ちに避難してください。</p>
+        <dl class="source">
+          <dt>浸水想定区域図</dt>
+          <dd>宮城県「宮城県第三次被害想定調査」（2004）より引用</dd>
+        </dl>
+        <h4 class="title">浸水深の見方</h4>
+        <%= image_tag("/assets/shinsui.gif", :size => "482x193", :alt => "浸水深の見方", :class => "img") %>
+      </div>
+    <% end -%>
+    <% if @item=="quake" -%>
+      <div class="help">
+        <p>地震による被害の軽減のためには、住宅等の耐震化を図ることが大切ですが、このためには住民の皆様がたに地震の大きさと揺れによる建物の危険性を良く知っていただく必要があります。</p>
+        <p>そこで、発生の恐れがある地震による揺れや建物の被害の可能性をわかりやすく示した「地震防災マップ」を作成しました。このマップは「揺れやすさマップ」と「地域の危険度マップ」からなっています。</p>
+        <p>昭和56年5月以前の旧耐震基準で建築された県内の木造戸建て住宅の約9割が、耐震性に問題があるとされています（宮城県調べ）。</p>
+        <p>「地震防災マップ」をご覧いただき、該当する住宅等にお住まいのかた・所有しているかたは、ぜひ耐震診断を受け、耐震性に問題があるときは、耐震改修や建替えを検討してください。</p>
+        <h4 class="title">詳細情報ダウンロード</h4>
+        <ul>
+          <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10504000/4536/yureyasusa.doc", "揺れやすさマップとは" ,"nl" %></li>
+          <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10504000/4536/kikendo.doc", "地域の危険度マップとは" ,"nl" %></li>
+          <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10504000/4536/sindo.doc", "震度とは？" ,"nl" %></li>
+          <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10504000/4536/taisinsindan.doc", "耐震診断について" ,"nl" %></li>
+          <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10504000/4536/taisaku.doc", "家具の地震対策について" ,"nl" %></li>
+          <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10504000/4536/taisaku2.doc", "ブロック塀等の地震対策について" ,"nl" %></li>
+        </ul>
+      </div>
+    <% end -%>
+  </div>
+
+  <div class="nl_right"><div class="nl" onClick="javascript:closeWindow();"><%= image_tag("/assets/close.png", :size => "16x16", :class => "icon") %> ウィンドウを閉じる</div></div>
+</section>

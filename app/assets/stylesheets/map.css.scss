@@ -1,0 +1,73 @@
+#googlemap {
+  margin-bottom: 3px;
+  width: 99%;
+  height: 400px;
+  border: 1px solid #e3eae9;
+  clear: both;
+}
+#legend {
+  background: #fff;
+  border: 1px solid #666666;
+  p {
+    margin: 2px;
+    padding: 0 2px
+  }
+  .color {
+    float: left;
+    height: 10px;
+    width: 10px;
+    margin-right: 3px;
+    border: 1px solid #666666;
+  }
+  .polygonRed {
+    filter: alpha(opacity=70);	/* ie */
+    -moz-opacity: 0.7; 			/* Firefox */
+    opacity: 0.7;					/* Webkit */
+    background: #ff0000;
+  }
+  .polygonOrange {
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+    background: #ff9900;
+  }
+  .polygonYellow {
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+    background: #ffff00;
+  }
+  .polygonLtblu {
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    background: #00ffff;
+  }
+  .polygonBlue {
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    background: #0000ff;
+  }
+}
+#select_map {
+  display: box;
+  margin: 5px;
+  padding: 3px 10px;
+  border: 1px solid #e3eae9;
+}
+.hidden {
+  display: none;
+}
+.disp {
+  display: inline;
+}
+ul.help {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    margin: 0;
+    padding: 4px 20px;
+  }
+}

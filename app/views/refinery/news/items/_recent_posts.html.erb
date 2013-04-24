@@ -1,0 +1,10 @@
+<% if @items.any? -%>
+  <ul class="info_list">
+    <% @items.each do |item| -%>
+      <li><%= item.publish_date.strftime(::CONF['time']['formats']['jp']) %> <%= slice_list_title(item.title) %></li>
+    <% end -%>
+  </ul>
+  <div class="nl_right"><%= link_to ">> 一覧", refinery.news_root_path, :class => "nl" %></div>
+<% else -%>
+  <div class="none"><%= ::CONF['news']['no_items'] %></div>
+<% end -%>

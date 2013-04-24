@@ -1,0 +1,122 @@
+<% content_for :javascripts do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.navHead').click(function() {
+        if($(this).next('.navList').is(':visible')) {
+          $(this).removeClass("selected").next().slideUp();
+        }else{
+          $('.navHead').removeClass("selected").next().slideUp();
+          $(this).toggleClass("selected").next().slideToggle();
+        }
+      }).next().hide();
+      <% if params[:action]=="map" -%>
+      $("#<%= params[:action] %>_<%= params[:id] %>").toggleClass("selected").next().show();
+      <% elsif params[:action]=="info" && params[:id].include?("request_") -%>
+      $("#<%= params[:action] %>_request").toggleClass("selected").next().show();
+      <% end -%>
+    });
+  </script>
+<% end %>
+<div class="wrap">
+  <h3 class="title">災害に備えて</h3>
+  <div class="nav">
+    <div class="navHead">災害を早く検知するために</div>
+    <ul class="navList">
+      <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10106000/6851/6851.html", "災害情報メール配信サービス" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10106000/6861/6861.html", "携帯版メール配信注意事項" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10106000/6860/6860.html", "災害テレホンサービス" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10507000/7432/7432.html", "東北地域向けアラームメール配信システム" ,"nl" %></li>
+    </ul>
+    <div class="navHead" id="map_hazard">危険を回避するために</div>
+    <ul class="navList">
+      <li class="note">災害の種類や程度別に想定した被害範囲を、ハザードマップで確認することができます。<%= link_to ">> ハザードマップ", "/map/hazard", :class => "nl nl_right" %></li>
+      <li class="note">土砂災害危険箇所については、こちらをご参照ください。<%= link_to_with_image "http://www.dobokugis.pref.miyagi.jp/menu2.htm", ">> 土砂災害危険箇所" ,"nl nl_right" %></li>
+    </ul>
+    <div class="navHead" id="map_shelter">速やかに避難するために</div>
+    <ul class="navList">
+      <li class="note">災害が発生した際に避難する避難所や避難場所をマップ上で確認することができます。<%= link_to ">> 避難所マップ", "/map/shelter", :class => "nl nl_right" %></li>
+    </ul>
+    <div class="navHead">防災に対する知識</div>
+    <ul class="navList">
+      <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10106000/980/980.html", "市民防災ガイド" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10106000/691/gensiryokugaido230208.pdf", "原子力防災ガイド" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/cont/10106000/8238/8238.html", "津波からの避難について（暫定版）" ,"nl" %></li>
+    </ul>
+  </div>
+</div>
+<div class="wrap">
+  <h3 class="title">石巻市リアルタイム情報</h3>
+  <div class="nav">
+    <div class="navHead" id="map_shelter_status">避難所開設・閉鎖情報</div>
+    <ul class="navList">
+      <li class="note">災害発生後、避難所開設に関する情報をマップ上で確認できます。<%= link_to ">> 避難所開設マップ", "/map/shelter_status", :class => "nl nl_right" %></li>
+    </ul>
+    <div class="navHead" id="map_transport">交通情報</div>
+    <ul class="navList">
+      <li class="note">災害発生後、随時更新される道路情報や交通機関運行情報を、マップ上で確認できます。<%= link_to ">> 交通情報マップ", "/map/transport", :class => "nl nl_right" %></li>
+    </ul>
+    <div class="navHead" id="map_lifeline">ライフライン情報</div>
+    <ul class="navList">
+      <li class="note">災害発生後、随時更新される電気・ガス・水道・通信などのライフラインに関する情報を、マップ上で確認できます。<%= link_to ">> ライフライン情報マップ", "/map/lifeline", :class => "nl nl_right" %></li>
+    </ul>
+    <div class="navHead" id="map_life">生活情報</div>
+    <ul class="navList">
+      <li class="note">災害発生後、随時更新される暮らしに関する情報を、マップ上で確認できます。<%= link_to ">> 生活情報マップ", "/map/life", :class => "nl nl_right" %></li>
+    </ul>
+    <div class="navHead" id="map_weather">地震・津波・気象情報</div>
+    <ul class="navList">
+      <li class="note">災害発生後、随時更新される災害や気象に関する情報を、マップ上で確認できます。<%= link_to ">> 気象情報マップ", "/map/weather", :class => "nl nl_right" %></li>
+    </ul>
+    <div class="navHead" id="info_request">被災者からの要望</div>
+    <ul class="navList">
+      <li class="note">被災者が困っていることを分野別に掲載しています。</li>
+      <li><%= link_to "被災者からの要望（生活全般）", "/info/request_life", :class => "nl" %></li>
+      <li><%= link_to "被災者からの要望（食料）", "/info/request_foods", :class => "nl" %></li>
+      <li><%= link_to "被災者からの要望（物資・資材）", "/info/request_goods", :class => "nl" %></li>
+    </ul>
+  </div>
+</div>
+<div class="wrap">
+  <h3 class="title">他組織発信情報 (他組織サイトリンク)</h3>
+  <div class="nav">
+    <div class="navHead">広域気象情報</div>
+    <ul class="navList">
+      <li><%= link_to_with_image "http://www.jma.go.jp/jp/kishojoho/312_index.html", "気象情報（天気予報）" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.jma.go.jp/jp/warn/312.html", "気象情報（警報・注意報）" ,"nl" %></li>
+    </ul>
+    <div class="navHead">広域災害情報</div>
+    <ul class="navList">
+      <li><%= link_to_with_image "http://www.jma.go.jp/jp/quake/", "地震情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.jma.go.jp/jp/tsunami/", "津波警報・注意報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.river.go.jp/nrpc0303gDisp.do?mode=&areaCode=82&wtAreaCode=3414&itemKindCode=901&timeAxis=60", "雨量/河川水位" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.jma.go.jp/jp/typh/", "台風情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.jma.go.jp/jp/tatsumaki/", "竜巻情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.jma.go.jp/jp/dosha/312_index.html", "土砂災害情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.jma.go.jp/jp/flood/102.html", "洪水情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://nowphas.mlit.go.jp/index.html", "海上情報" ,"nl" %></li>
+    </ul>
+    <div class="navHead">広域交通情報</div>
+    <ul class="navList">
+      <li><%= link_to_with_image "http://road.thr.mlit.go.jp/", "道路情報（道路規制）" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.jartic.or.jp/traffic/ippan/miyagiken_m_all.html", "道路交通情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://nowphas.mlit.go.jp/index.html", "港湾情報（波浪情報）" ,"nl" %></li>
+      <li><%= link_to_with_image "http://traininfo.jreast.co.jp/train_info/tohoku.aspx", "鉄道運行情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.miyakou.co.jp/cms/traffics/desc/", "路線バス運行情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://transit.goo.ne.jp/unkou/airline.html", "航空運行情報" ,"nl" %></li>
+    </ul>
+    <div class="navHead">広域ライフライン情報</div>
+    <ul class="navList">
+      <li><%= link_to_with_image "http://www.tohoku-epco.co.jp/", "電気情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.ishikousui.or.jp/", "水道情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.ishinomaki-gas.co.jp/", "ガス情報" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.ntt-east.co.jp/personal/support/", "電話情報" ,"nl" %></li>
+    </ul>
+    <div class="navHead">他社情報配信</div>
+    <ul class="navList">
+      <li><%= link_to_with_image "http://www.nttdocomo.co.jp/service/safety/areamail/", "緊急速報メール - docomo" ,"nl" %></li>
+      <li><%= link_to_with_image "http://www.au.kddi.com/notice/kinkyu_sokuho/", "緊急速報メール - au" ,"nl" %></li>
+      <li><%= link_to_with_image "http://mb.softbank.jp/mb/service/urgent_news/", "緊急速報メール - SoftBank" ,"nl" %></li>
+      <li><%= link_to_with_image "https://www.ntt-east.co.jp/saigai/voice171/", "災害用伝言ダイヤル" ,"nl" %></li>
+    </ul>
+  </div>
+</div>

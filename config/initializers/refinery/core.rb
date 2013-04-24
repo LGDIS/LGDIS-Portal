@@ -1,4 +1,4 @@
-# encoding: utf-8
+﻿# encoding: utf-8
 Refinery::Core.configure do |config|
   # When true will rescue all not found errors and display a friendly error page
   config.rescue_not_found = Rails.env.production?
@@ -16,6 +16,7 @@ Refinery::Core.configure do |config|
 
   # Site name
   # config.site_name = "Company Name"
+  config.site_name = "石巻市災害ポータルサイト"
 
   # This activates Google Analytics tracking within your website. If this
   # config is left blank or set to UA-xxxxxx-x then no remote calls to
@@ -33,7 +34,7 @@ Refinery::Core.configure do |config|
 
   # Should set this if concerned about DOS attacks. See
   # http://markevans.github.com/dragonfly/file.Configuration.html#Configuration
-  # config.dragonfly_secret = "b4e64957f7af7b60234447082098539b89867feb617db905"
+  # config.dragonfly_secret = "4401a2a3e94ee32391d3754d3e1c404b6b256f66a67e9503"
 
   # Show/hide IE6 upgrade message in the backend
   # config.ie6_upgrade_message_enabled = true

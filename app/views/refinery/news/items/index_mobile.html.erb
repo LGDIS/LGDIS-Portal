@@ -1,0 +1,15 @@
+<center><font color="#778899"><b><%= ::CONF['news']['title'] %>一覧</b></font></center><hr color="#4975d4" />
+
+<ul>
+  <% if @items.any? %>
+    <% @items.each do |item| %>
+     <li><%= item.publish_date.strftime(::CONF['time']['formats']['jp']) %><br /><%= link_to slice_list_title(item.title), refinery.news_item_path(item) %></li>
+    <% end %>
+  <% else %>
+    <li><%= ::CONF['news']['no_items'] %></li>
+  <% end %>
+</ul>
+<%= will_paginate @items %>
+<br />
+<hr color="#4975d4" />
+&lt;&lt;&nbsp;<%= link_to "TOP", refinery.root_path %>

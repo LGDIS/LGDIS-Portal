@@ -1,0 +1,25 @@
+<center><font color="#778899"><b><%= ::CONF['additions']['data'][@id]['title'] %>一覧</b></font></center><hr color="#4975d4" />
+
+<% if @feed.instance_of?(Georss::Feeds) -%>
+  <ul>
+    <% if @feed.status == 0 %>
+      <% @items.each do |item| %>
+       <li><%= item.updated %><br /><%= link_to slice_list_title(item.title), '/info/'+item.id+'/'+item.entry_id %></li>
+      <% end %>
+    <% else %>
+      <li><%= ::CONF['additions']['info']['status_' + @feed.status.to_s] %></li>
+    <% end %>
+  </ul>
+  <%= will_paginate @items %>
+<% else -%>
+  <dl>
+    <% ::CONF['additions']['data'].each_key do |id| -%>
+      <% if ( ::CONF['additions']['data'][@id]['type'].include?("info_group") || ::CONF['additions']['data'][@id]['type'].include?("georss_group") ) && ::CONF['additions']['data'][id.to_s]['type'].include?(@id) -%>
+        <dt>◇<%= link_to ::CONF['additions']['data'][id.to_s]['title'], '/info/'+id.to_s %></dt>
+      <% end -%>
+    <% end -%>
+  </dl>
+<% end -%>
+<br />
+<hr color="#4975d4" />
+&lt;&lt;&nbsp;<%= link_to "TOP", refinery.root_path %>

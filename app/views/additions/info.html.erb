@@ -1,0 +1,22 @@
+<section id="body_content_left">
+  <%= render '/refinery/menu_right' -%>
+</section>
+<section id="body_content_right">
+  <div class="wrap">
+    <h2 class="title"><%= ::CONF['additions']['data'][@id]['title'] %></h2>
+    <div id="info">
+    <% if @feed.status.zero? %>
+      <% @items.each do |item| %>
+          <div class="title"><%= item.title %></div>
+          <div class="date"><%= item.updated %></div>
+          <div class="content"><%= raw item.content %></div>
+      <% end %>
+      <%= will_paginate @items %>
+    <% else %>
+      <div class="none"><%= ::CONF['additions']['info']['status_' + @feed.status.to_s] %></div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="nl_right"><%= link_to ">> HOMEへ戻る", refinery.root_path, :class => "nl" %></div>
+</section>

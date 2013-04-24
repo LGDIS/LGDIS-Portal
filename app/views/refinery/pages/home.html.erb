@@ -1,0 +1,25 @@
+<section id="body_content_left">
+  <%= render '/refinery/menu_right' -%>
+</section>
+<section id="body_content_right">
+  <div id="content_left">
+    <h3 class="title">最新情報</h3>
+    <h4 class="title"><%= ::CONF['news']['title'] %></h4>
+    <%= render :partial => '/refinery/news/items/recent_posts' %>
+    <h4 class="title"><%= ::CONF['additions']['data']['disaster']['title'] %></h4>
+    <%= raw recent_feed_list @feed %>
+  </div>
+  <div id="content_right">
+    <div id="twi">
+      <a class="twitter-timeline" href="https://twitter.com/nttpctest" data-widget-id="318663665467396098" data-border-color="#4e91c7" data-chrome="nofooter">@nttpctest からのツイート</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+    <div class="wrap">
+      <div class="nav">
+        <ul class="navList">
+          <li class="disp"><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/", "石巻市 ホームページ" ,"nl" %></li>
+          <li class="disp"><%= link_to_with_image "http://www.pref.miyagi.jp/", "宮城県 ホームページ" ,"nl" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

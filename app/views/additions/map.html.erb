@@ -1,0 +1,101 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag '//maps.google.com/maps/api/js?sensor=false&language=ja&libraries=places' %>
+  <%= javascript_include_tag 'map.js' %>
+  <script type="text/javascript">
+    function map_init() {
+      init();
+      <% if ::CONF['additions']['data'][@id]['type'].include?("georss") -%>
+        putMarkersByKml("<%= ::CONF['additions']['data'][@id]['rss'] %>");
+      <% end -%>
+    }
+  <% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
+    $(function() {
+      dispChild("select1","select_submit");
+    });
+  <% end -%>
+  <% if ::CONF['additions']['data'][@id]['type'].include?("fusiontable") -%>
+    $(function() {
+    <% ::CONF['additions']['data'][@id]['selection'].each_key.with_index(1) do |key, i| -%>
+      <% if i==::CONF['additions']['data'][@id]['selection'].size -%>
+        dispChild("<%= key.to_s %>","select_submit");
+      <% else -%>
+        dispChild("<%= key.to_s %>","<%= ::CONF['additions']['data'][@id]['selection'].keys[i] %>");
+      <% end -%>
+    <% end -%>
+    });
+  <% end -%>
+  </script>
+<% end %>
+<section id="body_content_left">
+  <%= render '/refinery/menu_right' -%>
+</section>
+<section id="body_content_right">
+  <div class="wrap">
+    <h2 class="title"><%= ::CONF['additions']['data'][@id]['title'] %></h2>
+<% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
+    表示したいマップの種類を選択してください。
+    <%= form_tag("", :id => "select_map") do %>
+      <%= select_tag "select1", options_from_collection_for_select(@items, :rss, :title), :prompt => "選択してください", :class => "disp" %>
+      　<%= submit_tag "この内容で地図を表示", :onclick => raw("dispMap('georss','select1');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
+    <% end %>
+<% end -%>
+<% if ::CONF['additions']['data'][@id]['type'].include?("fusiontable") -%>
+    表示したいマップの種類と地区を選択してください。
+    <%= form_tag("", :id => "select_map") do %>
+      <% ::CONF['additions']['data'][@id]['selection'].each_key.with_index(1) do |key, i| -%>
+        <% if key.to_s=="select1" -%>
+          <%= select_tag key.to_s, options_for_select(::CONF['additions']['data'][@id]['selection'][key.to_s]), :prompt => "選択してください", :class => "disp" %>
+        <% else -%>
+          <div id="<%= key.to_s %>" class="hidden">
+            &gt; 
+            <% ::CONF['additions']['data'][@id]['selection'][key.to_s].each_key do |k| -%>
+              <%= select_tag key.to_s, options_for_select(::CONF['additions']['data'][@id]['selection'][key.to_s][k.to_s]), :id => k.to_s, :prompt => "選択してください", :class => "hidden" %>
+            <% end -%>
+          </div>
+        <% end -%>
+        <% if i==::CONF['additions']['data'][@id]['selection'].size -%>
+          　<%= submit_tag "この内容で地図を表示", :onclick => raw("dispMap('fusiontable','" +key.to_s+ "');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
+        <% end -%>
+      <% end -%>
+    <% end %>
+<% end -%>
+  </div>
+  <div id="googlemap"></div>
+<% if ::CONF['additions']['data'][@id]['type'].include?("traffic") -%>
+  <div class="wrap">
+    <button type="button" onClick="setTraffic();" id="trafficOn" class="disp">Google 交通情報を表示する</button>
+    <button type="button" onClick="removeTraffic();" id="trafficOff" class="hidden">Google 交通情報を表示させない</button>
+  </div>
+<% end -%>
+<% if ::CONF['additions']['data'][@id]['type'].include?("search") -%>
+  <div class="wrap">
+    <%= form_tag("", :id => "search_map") do %>
+    <h3 class="title">住所から探す</h3>
+    <p>
+      住所を入力して検索ボタンをクリックするとその場所の地図を表示します。<br />
+      <%= text_field_tag("search_address") %><%= submit_tag "検索", :onclick => ("searchAddress();"), :name => "sa", :type => "button" %>
+    </p>
+    <h3 class="title">目標物・施設から探す</h3>
+    <p>
+      施設名から検索可能です。<br />
+      <%= text_field_tag("search_place") %><%= submit_tag "検索", :onclick => ("searchPlace();"), :name => "sp", :type => "button" %>
+    </p>
+    <h3 class="title">経路を探す</h3>
+    <p>
+      出発点（A）<%= text_field_tag("search_from") %> → 到着点（B）<%= text_field_tag("search_to") %> <%= submit_tag "検索", :onclick => ("searchRoute();"), :name => "sr", :type => "button" %>
+    </p>
+    <% end %>
+  </div>
+<% end -%>
+<% if ::CONF['additions']['data'][@id]['help'].instance_of?(Hash) -%>
+  <div class="wrap">
+    <h3 class="title">ヘルプ</h3>
+    <ul class="help">
+      <% ::CONF['additions']['data'][@id]['help'].each do |key, val| -%>
+      <li><%= link_to raw(image_tag('/assets/link.png', :size => "12x11", :alt => "新しいウィンドウで開く") + ' ' + h(val)), '/help/'+@id+'/'+key.to_s , {:class => "nl", :target => '_blank'} %></li>
+      <% end -%>
+    </ul>
+  </div>
+<% end -%>
+  <div class="nl_right"><%= link_to ">> HOMEへ戻る", refinery.root_path, :class => "nl" %></div>
+</section>

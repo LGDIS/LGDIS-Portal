@@ -1,0 +1,14 @@
+<center><font color="#778899"><b><%= ::CONF['news']['title'] %></b></font></center><hr color="#4975d4" />
+
+<h3><%= raw @item.title %></h3>
+<hr />
+<dl>
+  <dt>□詳細</dt>
+    <dd><%= raw @item.body %></dd>
+  <dt>□更新日</dt>
+    <dd><%= @item.publish_date.strftime(::CONF['time']['formats']['jp']) %></dd>
+</dl>
+<br />
+<hr color="#4975d4" />
+&lt;&lt;&nbsp;<%= link_to ::CONF['news']['title']+"一覧へ戻る", refinery.news_root_path %><br />
+&lt;&lt;&nbsp;<%= link_to "TOP", refinery.root_path %>

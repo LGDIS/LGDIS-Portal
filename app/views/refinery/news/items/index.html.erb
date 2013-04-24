@@ -1,0 +1,21 @@
+<section id="body_content_left">
+  <%= render '/refinery/menu_right' -%>
+</section>
+<section id="body_content_right">
+  <div class="wrap">
+    <h2 class="title"><%= ::CONF['news']['title'] %></h2>
+    <div id="info">
+    <% if @items.any? %>
+      <% @items.each do |item| %>
+          <div class="title"><%= item.title %></div>
+          <div class="date"><%= item.publish_date.strftime(::CONF['time']['formats']['jp']) %></div>
+          <div class="content"><%= raw item.body %></div>
+      <% end %>
+      <%= will_paginate @items %>
+    <% else %>
+      <div class="none"><%= ::CONF['news']['no_items'] %></div>
+    <% end %>
+    </div>
+  </div>
+  <div class="nl_right"><%= link_to ">> HOMEへ戻る", refinery.root_path, :class => "nl" %></div>
+</section>
