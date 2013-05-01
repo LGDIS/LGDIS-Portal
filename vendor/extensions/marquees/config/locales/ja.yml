@@ -1,0 +1,22 @@
+ja:
+  refinery:
+    plugins:
+      marquees:
+        title: "マーキー情報"
+    marquees:
+      admin:
+        marquees:
+          index:
+            title: "マーキー情報"
+            create_new: "マーキー情報の新規追加"
+            no_items_yet: "まだ何も登録されていません。「新規追加」をクリックしてマーキー情報を追加して下さい。"
+          marquee:
+            published: "公開日"
+            edit: "このマーキー情報を編集"
+            delete: "このマーキー情報を削除"
+  activerecord:
+    attributes:
+      'refinery/marquees/marquee':
+        title: "タイトル"
+        publish_date: "公開日"
+        expiration_date: "公開期限"

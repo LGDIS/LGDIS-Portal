@@ -10,7 +10,7 @@
     }
   <% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
     $(function() {
-      dispChild("select1","select_submit");
+      dispChild("select","select_submit");
     });
   <% end -%>
   <% if ::CONF['additions']['data'][@id]['type'].include?("fusiontable") -%>
@@ -35,8 +35,11 @@
 <% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
     表示したいマップの種類を選択してください。
     <%= form_tag("", :id => "select_map") do %>
-      <%= select_tag "select1", options_from_collection_for_select(@items, :rss, :title), :prompt => "選択してください", :class => "disp" %>
-      　<%= submit_tag "この内容で地図を表示", :onclick => raw("dispMap('georss','select1');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
+      <%= select_tag "select", options_from_collection_for_select(@items, :id, :title), :prompt => "選択してください", :class => "disp" %>
+      <% @items.each do |item| -%>
+        <%= hidden_field_tag 'select_'+item.id, item.rss %>
+      <% end -%>
+      　<%= submit_tag "この内容で地図を表示", :onclick => raw("dispGeorss('select');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
     <% end %>
 <% end -%>
 <% if ::CONF['additions']['data'][@id]['type'].include?("fusiontable") -%>
@@ -54,7 +57,7 @@
           </div>
         <% end -%>
         <% if i==::CONF['additions']['data'][@id]['selection'].size -%>
-          　<%= submit_tag "この内容で地図を表示", :onclick => raw("dispMap('fusiontable','" +key.to_s+ "');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
+          　<%= submit_tag "この内容で地図を表示", :onclick => raw("dispFusiontable('" +key.to_s+ "');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
         <% end -%>
       <% end -%>
     <% end %>
@@ -65,6 +68,11 @@
   <div class="wrap">
     <button type="button" onClick="setTraffic();" id="trafficOn" class="disp">Google 交通情報を表示する</button>
     <button type="button" onClick="removeTraffic();" id="trafficOff" class="hidden">Google 交通情報を表示させない</button>
+  </div>
+<% end -%>
+<% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
+  <div class="wrap">
+    <div id="if_georss"></div>
   </div>
 <% end -%>
 <% if ::CONF['additions']['data'][@id]['type'].include?("search") -%>
@@ -92,7 +100,7 @@
     <h3 class="title">ヘルプ</h3>
     <ul class="help">
       <% ::CONF['additions']['data'][@id]['help'].each do |key, val| -%>
-      <li><%= link_to raw(image_tag('/assets/link.png', :size => "12x11", :alt => "新しいウィンドウで開く") + ' ' + h(val)), '/help/'+@id+'/'+key.to_s , {:class => "nl", :target => '_blank'} %></li>
+      <li><%= link_to raw(image_tag('/assets/link.png', :size => "12x11", :alt => "新しいウィンドウで開く") + ' ' + h(val)), '/help/'+@id+'/'+key.to_s , :class => "nl popup" %></li>
       <% end -%>
     </ul>
   </div>

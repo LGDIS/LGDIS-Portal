@@ -1,0 +1,26 @@
+en:
+  refinery:
+    plugins:
+      marquees:
+        title: Marquees
+    marquees:
+      admin:
+        marquees:
+          index:
+            title: Marquees
+            create_new: Add New Marquee
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Marquees yet. Click "Add New Marquee" to add your first marquee.
+          marquee:
+            published: Published
+            edit: Edit this marquee
+            delete: Remove this marquee forever
+      marquees:
+        show:
+          other: Other Marquees
+  activerecord:
+    attributes:
+      'refinery/marquees/marquee':
+        title: Title
+        publish_date: Publish Date
+        expiration_date: Expiration Date

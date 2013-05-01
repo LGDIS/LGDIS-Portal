@@ -1,0 +1,17 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(marquee) -%>">
+  <span class='title'>
+    <%= marquee.title %>
+    <span class="preview">
+      <%= t('.published') %> <%= l(marquee.publish_date, :format => :short) %><% if marquee.expiration_date? %> - <%= l(marquee.expiration_date, :format => :short) %><% end %>
+    </span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_marquees_admin_marquee_path(marquee),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), refinery.marquees_admin_marquee_path(marquee),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'refinery.admin.delete', :title => marquee.title),
+        :method => :delete %>
+  </span>
+</li>

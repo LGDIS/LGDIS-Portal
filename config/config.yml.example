@@ -29,6 +29,7 @@ additions:
   tv:
     number: 9
     number_marquee: 3
+    no_marquees: "現在、緊急の情報はありません。"
     marker_color: ["red","orange","blue","yellow","purple","green","brown","gray","white"]
   data:
     disaster:
@@ -37,174 +38,174 @@ additions:
     evacuation:
       type: ["disaster"]
       title: "避難勧告・指示"
-      rss: "http://xxx/rss/top/rss1.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss1.xml"
     jalert_jma:
       type: ["disaster"]
       title: "J-ALERT発信（気象庁）"
-      rss: "http://xxx/rss/top/rss2.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss2.xml"
     jalert_cas:
       type: ["disaster"]
       title: "J-ALERT発信（内閣官房）"
-      rss: "http://xxx/rss/top/rss3.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss3.xml"
     jma_warning:
       type: ["disaster"]
       title: "気象庁発信（警報・注意報）"
-      rss: "http://xxx/rss/top/rss4.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss4.xml"
     jma_other:
       type: ["disaster"]
       title: "気象庁発信（その他）"
-      rss: "http://xxx/rss/top/rss5.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss5.xml"
     river_warning:
       type: ["disaster"]
       title: "河川管理者発信（警報・注意報）"
-      rss: "http://xxx/rss/top/rss6.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss6.xml"
     river_other:
       type: ["disaster"]
       title: "河川管理者発信（その他）"
-      rss: "http://xxx/rss/top/rss7.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss7.xml"
     emergency:
       type: ["disaster"]
       title: "災害対策本部設置"
-      rss: "http://xxx/rss/top/rss8.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss8.xml"
     request:
       type: ["info_group"]
       title: "被災者からの要望"
     request_life:
       type: ["info", "request"]
       title: "被災者からの要望（生活全般）"
-      rss: "http://xxx/rss/rss_d1.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/rss_d1.xml"
     request_foods:
       type: ["info", "request"]
       title: "被災者からの要望（食料）"
-      rss: "http://xxx/rss/rss_d2.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/rss_d2.xml"
     request_goods:
       type: ["info", "request"]
       title: "被災者からの要望（物資・資材）"
-      rss: "http://xxx/rss/rss_d3.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/rss_d3.xml"
     shelter_status:
       type: ["map", "georss", "search", "tv"]
       title: "避難所開設・閉鎖情報"
-      rss: "http://xxx/rss/GeoRSS_shelter.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/GeoRSS_shelter.xml"
     transport:
       type: ["map", "georss_group", "traffic"]
       title: "交通情報"
     traffic_control:
       type: ["georss", "transport", "tv"]
       title: "道路通行規制に関する情報"
-      rss: "http://xxx/rss/GeoRSS_traffic_control.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/GeoRSS_traffic_control.xml"
     traffic_jam:
       type: ["georss", "transport", "tv"]
       title: "道路渋滞に関する情報"
-      rss: "http://xxx/rss/GeoRSS_traffic_jam.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/GeoRSS_traffic_jam.xml"
     road_status:
       type: ["georss", "transport", "tv"]
       title: "道路路面状況に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     train_traffic:
       type: ["georss", "transport", "tv"]
       title: "鉄道の運行に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     bus_traffic:
       type: ["georss", "transport", "tv"]
       title: "バスの運行に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     air_traffic:
       type: ["georss", "transport", "tv"]
       title: "航空路の運行に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     ship_traffic:
       type: ["georss", "transport", "tv"]
       title: "船舶路の運行に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     other_traffic:
       type: ["georss", "transport", "tv"]
       title: "その他公共交通の運行に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     lifeline:
       type: ["map", "georss_group"]
       title: "ライフライン情報"
     water_supply:
       type: ["georss", "lifeline"]
       title: "給水に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     power_supply:
       type: ["georss", "lifeline"]
       title: "電気に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     water_system:
       type: ["georss", "lifeline"]
       title: "上水道に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     sewage_system:
       type: ["georss", "lifeline"]
       title: "下水道に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     gas_system:
       type: ["georss", "lifeline"]
       title: "ガスに関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     network_system:
       type: ["georss", "lifeline"]
       title: "通信網に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     emergency_broadcast:
       type: ["georss", "lifeline"]
       title: "臨時災害放送に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     life:
       type: ["map", "georss_group"]
       title: "生活情報"
     distribution_service:
       type: ["georss", "life"]
       title: "炊き出し・物資配布に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     bath_service:
       type: ["georss", "life"]
       title: "入浴サービスに関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     shop_info:
       type: ["georss", "life"]
       title: "営業店舗に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     medical_info:
       type: ["georss", "life"]
       title: "医療に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     welfare_info:
       type: ["georss", "life"]
       title: "健康・福祉・介護に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     education_info:
       type: ["georss", "life"]
       title: "学校・幼稚園・保育所に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     environment_info:
       type: ["georss", "life"]
       title: "環境に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     crime_prevention:
       type: ["georss", "life"]
       title: "防犯に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     volunteer_support:
       type: ["georss", "life"]
       title: "ボランティアの支援を受けたい方への情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     other_support:
       type: ["georss", "life"]
       title: "その他の被災者支援に関する情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     weather:
       type: ["map", "georss_group"]
       title: "地震・津波・気象情報"
     quake_warning:
       type: ["georss", "weather"]
       title: "地震速報/津波情報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     weather_warning:
       type: ["georss", "weather"]
       title: "注意報・警報"
-      rss: "http://xxx/rss/sample.xml"
+      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
     shelter:
       type: ["map", "fusiontable", "search"]
       title: "避難所"
@@ -234,129 +235,47 @@ additions:
       selection:
         select1: [["洪水ハザードマップ",1],["津波ハザードマップ",2],["地震防災マップ",3]]
         select2:
-          select2_1: [["石巻地区",1],["河北地区",2],["雄勝地区",3],["河南地区",4],["桃生地区",5],["北上地区",6],["牡鹿地区",7]]
+          select2_1: [["石巻地区",1],["河北地区",2],["河南地区",4],["桃生地区",5]]
           select2_2: [["石巻地区",8],["河北地区",9],["雄勝地区",10],["河南地区",11],["北上地区",12],["牡鹿地区",13]]
-          select2_3: [["石巻（西部）地区",14],["石巻（東部）地区",15],["河北地区",16],["雄勝地区",17],["河南地区",18],["桃生地区",19],["北上地区",20],["牡鹿地区",21]]
+          select2_3: [["石巻地区",14],["河北・桃生地区",15],["雄勝・北上地区",16],["河南地区",17],["牡鹿半島地区",18]]
         select3:
           select3_1:
-            - ["地区1", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区2", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区3", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区4", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区5", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区6", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区7", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区8", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区9", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区10", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区11", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区12", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区13", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区14", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区15", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区16", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区17", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区18", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区19", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区20", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区21", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区22", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区23", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区24", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区25", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区26", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地区1", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.472427,141.268113,14]]
+            - ["地区2", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.446081,141.265367,14]]
+            - ["地区3", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.419053,141.264766,14]]
+            - ["地区5", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.472847,141.314290,14]]
+            - ["地区6", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.444670,141.316779,14]]
+            - ["地区7", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.419322,141.312488,14]]
+            - ["地区10", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.465791,141.361797,14]]
+            - ["地区11", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.445224,141.363772,14]]
           select3_2:
-            - ["地区1", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区2", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区3", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区4", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区5", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区6", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区7", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区8", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区9", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区10", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区11", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区12", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区13", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区14", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区15", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区16", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区17", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区18", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区19", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区20", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-          select3_3:
-            - ["地区1", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区2", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区3", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区4", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区5", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区6", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区7", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区8", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区9", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区10", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区11", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地区1", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.555318,141.267813,14]]
+            - ["地区2", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.527122,141.267899,14]]
+            - ["地区3", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.497370,141.269701,14]]
+            - ["地区4", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.553384,141.317992,14]]
+            - ["地区5", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.524046,141.317562,14]]
+            - ["地区6", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.499331,141.317562,14]]
+            - ["地区9", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.552310,141.359448,14]]
+            - ["地区10", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.527471,141.359448,14]]
+            - ["地区13", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.552847,141.408715,14]]
+            - ["地区14", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.526396,141.408800,14]]
+            - ["地区16", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.576873,141.456522,14]]
+            - ["地区17", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.552042,141.457295,14]]
+            - ["地区18", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.524583,141.455793,14]]
           select3_4:
-            - ["地区1", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区2", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区3", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区4", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区5", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区6", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区7", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区8", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区9", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区10", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区11", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区12", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区13", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地区1", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.525792,141.179847,14]]
+            - ["地区2", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.499801,141.174096,14]]
+            - ["地区3", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.472255,141.175985,14]]
+            - ["地区4", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.449875,141.175985,14]]
+            - ["地区5", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.526598,141.226625,14]]
+            - ["地区6", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.500741,141.226625,14]]
+            - ["地区7", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.472457,141.226625,14]]
+            - ["地区8", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.446783,141.226625,14]]
           select3_5:
-            - ["地区1", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区2", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区3", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区4", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区5", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区6", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区7", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区8", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区9", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区10", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区11", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-          select3_6:
-            - ["地区1", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区2", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区3", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区4", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区5", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区6", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区7", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区8", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区9", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区10", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区11", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区12", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区13", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-          select3_7:
-            - ["地区1", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区2", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区3", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区4", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区5", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区6", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区7", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区8", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区9", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区10", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区11", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区12", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区13", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区14", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区15", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区16", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区17", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区18", [1,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地区1", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.572512,141.232376,14]]
+            - ["地区2", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.553116,141.232376,14]]
+            - ["地区5", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.604580,141.271600,14]]
+            - ["地区6", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.581033,141.271600,14]]
           select3_8:
             - ["地区1", [2,"1g2d2dhgw79KU5oFsb5i1AWkm9dbGVGmyTybM8LI",38.452614,141.306446,14]]
             - ["地区2", [2,"1Yowjm5qPdxRiXuqIiVPDio2FfPTsKGJUrD6XPt8",38.41345,141.292834,13]]
@@ -386,50 +305,27 @@ additions:
             - ["地区5", [2,"1nwEB2HTOQaIZZNTERbWRTXmZX1SkeWm6_E--WpM",38.350042,141.515379,13]]
             - ["地区6", [2,"1tLI3Bw5uqORinatHOL9FK6w7vsHcffyNXNearlA",38.387217,141.515479,13]]
           select3_14:
-            - ["揺れやすさマップ（～震度4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度5～震度6弱）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（～震度6弱）", [31,"1RF9sM7EmevY9AQv5dNgAv9fQrah2KRdUTFIb2Bw",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（震度6強～）", [32,"1RF9sM7EmevY9AQv5dNgAv9fQrah2KRdUTFIb2Bw",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"1tOuoF28bi9uRED0mqkC54UjpQtZE8mGFbhrIDs4",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度5～7）", [42,"1tOuoF28bi9uRED0mqkC54UjpQtZE8mGFbhrIDs4",38.451976,141.291676,12]]
           select3_15:
-            - ["揺れやすさマップ（～震度4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度5～震度6弱）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（～震度6弱）", [31,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（震度6強～）", [32,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度5～7）", [42,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
           select3_16:
-            - ["揺れやすさマップ（～震度4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度5～震度6弱）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（～震度6弱）", [31,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（震度6強～）", [32,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度5～7）", [42,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
           select3_17:
-            - ["揺れやすさマップ（～震度4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度5～震度6弱）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（～震度6弱）", [31,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（震度6強～）", [32,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度5～7）", [42,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
           select3_18:
-            - ["揺れやすさマップ（～震度4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度5～震度6弱）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-          select3_19:
-            - ["揺れやすさマップ（～震度4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度5～震度6弱）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-          select3_20:
-            - ["揺れやすさマップ（～震度4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度5～震度6弱）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-          select3_21:
-            - ["揺れやすさマップ（～震度4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度5～震度6弱）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [3,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（～震度6弱）", [31,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["揺れやすさマップ（震度6強～）", [32,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"1gsp-XQ8EFlqefXvXPxyyUFNCRALnnl3qqyzVq7A",38.451976,141.291676,12]]
+            - ["地域の危険度マップ（危険度5～7）", [42,"1gsp-XQ8EFlqefXvXPxyyUFNCRALnnl3qqyzVq7A",38.451976,141.291676,12]]

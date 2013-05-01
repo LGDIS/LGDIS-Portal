@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+  <%= render '/refinery/head' %>
+  <body>
+    <%= render '/refinery/ie6check' if request.env['HTTP_USER_AGENT'] =~ /MSIE/ -%>
+    <div id="page">
+      <%= yield %>
+    </div>
+    <%= render '/refinery/javascripts' %>
+  </body>
+</html>

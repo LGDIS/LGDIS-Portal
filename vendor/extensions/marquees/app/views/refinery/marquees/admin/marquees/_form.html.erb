@@ -1,0 +1,30 @@
+<%= form_for [refinery, :marquees_admin, @marquee] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @marquee,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :publish_date -%>
+    <%= f.datetime_select :publish_date  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :expiration_date -%>
+    <%= f.datetime_select :expiration_date, :start_year => Time.now.year,
+                                            :include_blank => true %>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.marquees.admin.marquees.marquee'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @marquee.title) %>
+<% end -%>

@@ -31,47 +31,108 @@ var map, markers, infowindow;
   function putMarkersByTable(type, docid, lat, lng, zoom) {
     removeMarkers();
     var content = [];
-    if(type==1||type==2||type==3){
-      var layer = new google.maps.FusionTablesLayer({
+    var prop = {
+      query: {select: 'geometry', from: docid},
+      styles: [{ markerOptions: {iconName: "large_green"}  , polygonOptions: {fillColor: "#00ff00", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ff00", strokeWeight: "4"} }]
+    };
+    if(type==1){
+      prop = {
         query: {select: 'geometry', from: docid},
-        styles: [{
-          where: "rank = 1",
-          markerOptions: {iconName: "large_blue"},
-          polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"}
-        },{
-          where: "rank = 2",
-          markerOptions: {iconName: "ltblu_circle"},
-          polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"}
-        },{
-          where: "rank = 3",
-          markerOptions: {iconName: "large_yellow"},
-          polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"}
-        },{
-          where: "rank = 4",
-          markerOptions: {iconName: "orange_circle"},
-          polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"}
-        }]
-      });
+        styles: [
+          { where: "rank = 1", markerOptions: {iconName: "large_blue"}  , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
+          { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"}, polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
+          { where: "rank = 3", markerOptions: {iconName: "large_yellow"}, polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
+          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"},polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} }
+        ]
+      };
       content.push('<p>浸水深</p>');
       content.push('<p><div class="color polygonBlue"></div>0.5m未満</p>');
       content.push('<p><div class="color polygonLtblu"></div>0.5m～1.0m</p>');
       content.push('<p><div class="color polygonYellow"></div>1.0m～2.0m</p>');
       content.push('<p><div class="color polygonOrange"></div>2.0m～5.0m</p>');
       content.push('<p><div class="color polygonRed"></div>5.0m以上</p>');
-    }else{
-      var layer = new google.maps.FusionTablesLayer({
+    }else if(type==2){
+      prop = {
         query: {select: 'geometry', from: docid},
-        styles: [{
-          markerOptions: {iconName: "large_green"},
-          polygonOptions: {fillColor: "#00ff00", strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#00ff00", strokeWeight: "4"}
-        }]
-      });
+        styles: [
+          { where: "rank = 1", markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
+          { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
+          { where: "rank = 3", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
+          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} },
+          { where: "rank = 5", markerOptions: {iconName: "pink_circle"}  , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} }
+        ]
+      };
+      content.push('<p>浸水深</p>');
+      content.push('<p><div class="color polygonBlue"></div>1.0m未満</p>');
+      content.push('<p><div class="color polygonLtblu"></div>1.0m～2.0m</p>');
+      content.push('<p><div class="color polygonYellow"></div>2.0m～3.0m</p>');
+      content.push('<p><div class="color polygonOrange"></div>3.0m～4.0m</p>');
+      content.push('<p><div class="color polygonPink"></div>4.0m～5.0m</p>');
+      content.push('<p><div class="color polygonRed"></div>5.0m以上</p>');
+    }else if(type==31){
+      prop = {
+        query: {select: 'geometry', from: docid, where: 'rank < 7'},
+        styles: [
+          { where: "rank = 1", markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
+          { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
+          { where: "rank = 3", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
+          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} },
+          { where: "rank = 5", markerOptions: {iconName: "pink_circle"}  , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} }
+        ]
+      };
+      content.push('<p><div class="color polygonBlue"></div>震度2以下</p>');
+      content.push('<p><div class="color polygonLtblu"></div>震度3</p>');
+      content.push('<p><div class="color polygonYellow"></div>震度4</p>');
+      content.push('<p><div class="color polygonOrange"></div>震度5弱</p>');
+      content.push('<p><div class="color polygonPink"></div>震度5強</p>');
+      content.push('<p><div class="color polygonRed"></div>震度6弱</p>');
+    }else if(type==32){
+      prop = {
+        query: {select: 'geometry', from: docid, where: 'rank >= 7'},
+        styles: [
+          { where: "rank = 7" , markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
+          { where: "rank = 8" , markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
+          { where: "rank = 9" , markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
+          { where: "rank = 10", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} },
+          { where: "rank = 11", markerOptions: {iconName: "pink_circle"}  , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} }
+        ]
+      };
+      content.push('<p><div class="color polygonBlue"></div>震度6強 1</p>');
+      content.push('<p><div class="color polygonLtblu"></div>震度6強 2</p>');
+      content.push('<p><div class="color polygonYellow"></div>震度6強 3</p>');
+      content.push('<p><div class="color polygonOrange"></div>震度6強 4</p>');
+      content.push('<p><div class="color polygonPink"></div>震度6強 5</p>');
+      content.push('<p><div class="color polygonRed"></div>震度7</p>');
+    }else if(type==41){
+      prop = {
+        query: {select: 'geometry', from: docid, where: 'rank < 5'},
+        styles: [
+          { where: "rank = 1", markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
+          { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
+          { where: "rank = 3", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
+          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} }
+        ]
+      };
+      content.push('<p>危険度(木造建物全壊率)</p>');
+      content.push('<p><div class="color polygonBlue"></div>危険度1(0～3%)</p>');
+      content.push('<p><div class="color polygonLtblu"></div>危険度2(3～5%)</p>');
+      content.push('<p><div class="color polygonYellow"></div>危険度3(5～7%)</p>');
+      content.push('<p><div class="color polygonOrange"></div>危険度4(7～10%)</p>');
+    }else if(type==42){
+      prop = {
+        query: {select: 'geometry', from: docid, where: 'rank >= 5'},
+        styles: [
+          { where: "rank = 5", markerOptions: {iconName: "large_purple"}, polygonOptions: {fillColor: "#8000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#8000ff", strokeWeight: "4"} },
+          { where: "rank = 6", markerOptions: {iconName: "pink_circle"} , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"},polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} }
+        ]
+      };
+      content.push('<p>危険度()</p>');
+      content.push('<p><div class="color polygonBlue"></div>危険度5(10～20%)</p>');
+      content.push('<p><div class="color polygonLtblu"></div>危険度6(20～30%)</p>');
+      content.push('<p><div class="color polygonYellow"></div>危険度7(30～%)</p>');
     }
+alert(type + ':' + prop["query"]["from"]);
+    var layer = new google.maps.FusionTablesLayer(prop);
     // 中心点やzoomも固定指定ではなく、自動で取れるようには最終的にしたほうが良いかも
     setCenter(lat, lng, zoom);
 
@@ -79,55 +140,14 @@ var map, markers, infowindow;
     markers.push(layer);
 
     // 凡例を表示
-    var legend = document.createElement('div');
-    legend.id = 'legend';
-    legend.innerHTML = content.join('');
-    legend.index = 1;
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].clear();
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
-  }
-
-  function putMarkersByTable2(docid, lat, lng, zoom) {
-    removeMarkers();
-      var layer = new google.maps.FusionTablesLayer({
-        query: {select: 'geometry', from: docid},
-        styles: [{
-          where: "clr = 1",
-          markerOptions: {iconName: "large_blue"},
-          polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"}
-        },{
-          where: "clr = 2",
-          markerOptions: {iconName: "ltblu_circle"},
-          polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"}
-        },{
-          where: "clr = 3",
-          markerOptions: {iconName: "large_yellow"},
-          polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"}
-        },{
-          where: "clr = 4",
-          markerOptions: {iconName: "orange_circle"},
-          polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"}
-        },{
-          where: "clr = 11",
-          markerOptions: {iconName: "large_purple"},
-          polygonOptions: {fillColor: "#8000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#8000ff", strokeWeight: "4"}
-        },{
-          where: "clr = 21",
-          markerOptions: {iconName: "pink_circle"},
-          polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"},
-          polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"}
-        }]
-      });
-    // 中心点やzoomも固定指定ではなく、自動で取れるようには最終的にしたほうが良いかも
-    setCenter(lat, lng, zoom);
-
-    layer.setMap(map);
-    markers.push(layer);
+    if(content.length > 0){
+      var legend = document.createElement('div');
+      legend.id = 'legend';
+      legend.innerHTML = content.join('');
+      legend.index = 1;
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+    }
   }
 
   function putMarkersByKml(url) {
@@ -260,25 +280,32 @@ function dispChild(parent, child) {
     }
   }).trigger("change");
 }
-function dispMap(type, name) {
-  if(type=="georss"){
-    var val = $('#'+name).val();
+function dispGeorss(name) {
+  $('#if_georss').empty();
+  var id = $('#'+name).val();
+  if(id) {
+    var val = $('#'+name+'_'+id).val();
     if(val) {
       putMarkersByKml(val);
+      var html = '<iframe class="if_georss" seamless marginwidth="0" marginheight="0" frameborder="0" src="/help/' +id+ '" width="100%"></iframe>';
+      $('#if_georss').html(html);
     }else{
       alert('マップの種類を選択してください');
     }
-  }else if(type=="fusiontable"){
-    var val = $('select[name="'+name+'"][class="disp"]').val();
-    if(val) {
-      var table = JSON.parse(val);
-      if($.isArray(table)) {
-        putMarkersByTable(table[0], table[1], table[2], table[3], table[4]);
-      }else{
-        alert('マップの種類と地区を選択してください');
-      }
+  }else{
+    alert('マップの種類を選択してください');
+  }
+}
+function dispFusiontable(name) {
+  var val = $('select[name="'+name+'"][class="disp"]').val();
+  if(val) {
+    var table = JSON.parse(val);
+    if($.isArray(table)) {
+      putMarkersByTable(table[0], table[1], table[2], table[3], table[4]);
     }else{
       alert('マップの種類と地区を選択してください');
     }
+  }else{
+    alert('マップの種類と地区を選択してください');
   }
 }

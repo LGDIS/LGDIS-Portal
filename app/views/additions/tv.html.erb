@@ -1,10 +1,10 @@
 <p><marquee bgcolor="#000000"><h1><font color="#ffffff">
-  <% if @feed_m.status.zero? %>
-    <% @feed_m.items.each.with_index(1) do |item, i| -%>
+  <% if @items.any? -%>
+    <% @items.each do |item| -%>
       <%= item.title %>　　　
     <% end -%>
   <% else -%>
-    <%= ::CONF['additions']['info']['status_' + @feed_m.status.to_s] %>
+    <%= ::CONF['additions']['tv']['no_marquees'] %>
   <% end -%>
 </font></h1></marquee></p>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">

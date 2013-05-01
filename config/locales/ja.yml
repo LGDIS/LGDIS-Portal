@@ -1,0 +1,47 @@
+ja:
+  refinery:
+    plugins:
+      refinerycms_news:
+        title: "お知らせ"
+        description: "お知らせを掲載"
+    news:
+      admin:
+        items:
+          item:
+#            view_live_html: "View this news item live <br/><em>(opens in a new window)</em>"
+            edit: "このお知らせを編集"
+            delete: "このお知らせを削除"
+            published: "公開日"
+          index:
+            create: "お知らせの新規追加"
+            item: "お知らせ"
+            no_items_yet: "まだ何も登録されていません。「新規追加」をクリックしてお知らせを追加して下さい。"
+#      shared:
+#        items: 
+#          created_at: 'Created at %{when}'
+#        archives: Archives
+#      items:
+#        show:
+#          back_to_index: "Back to all news"
+#          published: Published
+#          source: Source
+#        recent_posts:
+#          recent_posts: Recent Posts
+#        index:
+#          published: Published
+#          read_more: Read more
+#          no_items_yet: There are no news item entries yet.
+#          source: Source
+#        archive:
+#          news_item_archive_for: 'Archive for %{date}'
+#          no_news_articles_posted: 'There are no news articles posted for %{date}. Stay tuned.'
+  activerecord:
+    attributes:
+      'refinery/news/item':
+        title: "タイトル"
+        body: "本文"
+        publish_date: "公開日"
+        expiration_date: "公開期限"
+#        source: Source
+#    models:
+#      'refinery/news/item': News Item

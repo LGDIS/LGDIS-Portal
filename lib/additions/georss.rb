@@ -54,7 +54,7 @@ module Georss
       @items = []
 
       if url && entry_id
-#        begin
+        begin
           xml = Nokogiri::XML(open(url).read)
           entry_nodes = xml.xpath('//xmlns:entry')
           entry_nodes.each do |entry_node|
@@ -77,9 +77,9 @@ module Georss
             end
           end
           @status = 2 if @items.size!=1
-#        rescue
-#          @status = 1
-#        end
+        rescue
+          @status = 1
+        end
       else
         @status = 3
       end

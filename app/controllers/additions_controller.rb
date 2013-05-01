@@ -91,23 +91,29 @@ class AdditionsController < ApplicationController
       unless ::CONF['additions']['data'].keys.include?(@id)
         error_404
       else
-        unless ::CONF['additions']['data'][@id]['help'].include?(@item)
-          error_404
+        if @item.empty?
+          if ::CONF['additions']['data'][@id]['type'].include?("georss")
+            urls = []
+            data = { :id => @id, :url => ::CONF['additions']['data'][@id]['rss'] }
+            urls.push data
+            @feed = ::Georss::Feeds.new
+            @feed.parse *urls, 0
+            @items = @feed.items
+          else
+            error_404
+          end
+        else
+          unless ::CONF['additions']['data'][@id]['help'].include?(@item)
+            error_404
+          end
         end
       end
     end
+    render :layout => 'help'
   end
 
   def tv
-    @feed_m = ::Georss::Feeds.new
-    urls = []
-    ::CONF['additions']['data'].each_key do |id|
-      if ::CONF['additions']['data'][id.to_s]['type'].include?("disaster")
-        data = {:id => id.to_s, :url => ::CONF['additions']['data'][id.to_s]['rss'] }
-        urls.push data
-      end
-    end
-    @feed_m.parse *urls, ::CONF['additions']['tv']['number_marquee']
+    @items = Refinery::Marquees::Marquee.latest(::CONF['additions']['tv']['number_marquee'])
 
     @feed = ::Georss::Feeds.new
     urls = []

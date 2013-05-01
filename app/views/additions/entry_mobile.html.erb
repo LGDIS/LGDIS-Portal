@@ -21,8 +21,8 @@
 <br />
 <hr color="#4975d4" />
 <% if ::CONF['additions']['data'][@id]['type'].include?("disaster") -%>
-  &lt;&lt;&nbsp;<%= link_to link_to ::CONF['additions']['data']['disaster']['title']+"一覧へ戻る", "/info/disaster" %><br />
+  &lt;&lt;&nbsp;<%= link_to ::CONF['additions']['data']['disaster']['title']+"一覧へ戻る", "/info/disaster" %><br />
 <% else -%>
-  &lt;&lt;&nbsp;<%= link_to link_to ::CONF['additions']['data'][@id]['title']+"一覧へ戻る", "/info/"+@id %><br />
+  &lt;&lt;&nbsp;<%= link_to ::CONF['additions']['data'][@id]['title']+"一覧へ戻る", "/info/"+@id %><br />
 <% end -%>
 &lt;&lt;&nbsp;<%= link_to "TOP", refinery.root_path %>
