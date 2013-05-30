@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.description       = 'Ruby on Rails Marquees extension for Refinery CMS'
   s.date              = '2013-04-24'
   s.summary           = 'Marquees extension for Refinery CMS'
+  s.authors           = ["Ishinomaki City"]
   s.require_paths     = %w(lib)
   s.files             = Dir["{app,config,db,lib}/**/*"] + ["readme.md"]
 

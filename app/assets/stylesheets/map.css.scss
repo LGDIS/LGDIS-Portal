@@ -25,11 +25,29 @@
     opacity: 0.7;					/* Webkit */
     background: #ff0000;
   }
+  .polygonDkred {
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+    background: #660000;
+  }
   .polygonPink {
     filter: alpha(opacity=50);
     -moz-opacity: 0.5;
     opacity: 0.5;
     background: #ff0080;
+  }
+  .polygonLtpnk {
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    background: #ff99ff;
+  }
+  .polygonDkOrng {
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+    background: #ff6600;
   }
   .polygonOrange {
     filter: alpha(opacity=70);
@@ -42,6 +60,18 @@
     -moz-opacity: 0.7;
     opacity: 0.7;
     background: #ffff00;
+  }
+  .polygonLtgrn {
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    background: #00ff00;
+  }
+  .polygonGreen {
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    background: #006600;
   }
   .polygonLtblu {
     filter: alpha(opacity=50);

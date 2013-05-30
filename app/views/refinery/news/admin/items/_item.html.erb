@@ -19,7 +19,7 @@
     <%= link_to refinery_icon_tag('delete.png'), refinery.news_admin_item_path(item),
                 :class => "cancel confirm-delete",
                 :title => t('.delete'),
-                :method => :delete,
-                :confirm => t('shared.admin.delete.message', :title => item.title) %>
+                :confirm => t('message', :scope => 'refinery.admin.delete', :title => item.title),
+                :method => :delete %>
   </span>
 </li>

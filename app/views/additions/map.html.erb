@@ -5,7 +5,7 @@
     function map_init() {
       init();
       <% if ::CONF['additions']['data'][@id]['type'].include?("georss") -%>
-        putMarkersByKml("<%= ::CONF['additions']['data'][@id]['rss'] %>");
+        putMarkersByKml("<%= url_with_noise(::CONF['additions']['data'][@id]['rss'], ::CONF['additions']['map']['noise_interval']) %>");
       <% end -%>
     }
   <% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
@@ -37,7 +37,7 @@
     <%= form_tag("", :id => "select_map") do %>
       <%= select_tag "select", options_from_collection_for_select(@items, :id, :title), :prompt => "選択してください", :class => "disp" %>
       <% @items.each do |item| -%>
-        <%= hidden_field_tag 'select_'+item.id, item.rss %>
+        <%= hidden_field_tag 'select_'+item.id, url_with_noise(item.rss, ::CONF['additions']['map']['noise_interval']) %>
       <% end -%>
       　<%= submit_tag "この内容で地図を表示", :onclick => raw("dispGeorss('select');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
     <% end %>

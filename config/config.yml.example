@@ -1,4 +1,4 @@
-# encoding: utf-8
+﻿# encoding: utf-8
 time:
   formats:
     ja: "%Y年%m月%d日 %H時%M分"
@@ -30,182 +30,204 @@ additions:
     number: 9
     number_marquee: 3
     no_marquees: "現在、緊急の情報はありません。"
-    marker_color: ["red","orange","blue","yellow","purple","green","brown","gray","white"]
+    marker_color: ["gray","orange","blue","yellow","red","green","brown","purple","white"]
+  map:
+    noise_interval: 300
   data:
     disaster:
       type: []
       title: "災害関連情報"
     evacuation:
-      type: ["disaster"]
+      type: ["disaster", "tv"]
       title: "避難勧告・指示"
-      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss1.xml"
+      rss: "http://localhost.localdomain/atom/1_track.rss"
     jalert_jma:
-      type: ["disaster"]
+      type: ["disaster", "tv"]
       title: "J-ALERT発信（気象庁）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss2.xml"
+      rss: "http://localhost.localdomain/atom/78_track.rss"
     jalert_cas:
-      type: ["disaster"]
+      type: ["disaster", "tv"]
       title: "J-ALERT発信（内閣官房）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss3.xml"
+      rss: "http://localhost.localdomain/atom/77_track.rss"
     jma_warning:
-      type: ["disaster"]
+      type: ["disaster", "tv"]
       title: "気象庁発信（警報・注意報）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss4.xml"
+      rss: "http://localhost.localdomain/atom/4_track.rss"
     jma_other:
-      type: ["disaster"]
+      type: ["disaster", "tv"]
       title: "気象庁発信（その他）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss5.xml"
+      rss: "http://localhost.localdomain/atom/3_track.rss"
     river_warning:
-      type: ["disaster"]
+      type: ["disaster", "tv"]
       title: "河川管理者発信（警報・注意報）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss6.xml"
+      rss: "http://localhost.localdomain/atom/6_track.rss"
     river_other:
-      type: ["disaster"]
+      type: ["disaster", "tv"]
       title: "河川管理者発信（その他）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss7.xml"
+      rss: "http://localhost.localdomain/atom/5_track.rss"
     emergency:
-      type: ["disaster"]
+      type: ["disaster", "tv"]
       title: "災害対策本部設置"
-      rss: "http://xxx.xxx.xxx.xxx/rss/top/rss8.xml"
+      rss: "http://localhost.localdomain/atom/16_track.rss"
     request:
       type: ["info_group"]
       title: "被災者からの要望"
     request_life:
       type: ["info", "request"]
       title: "被災者からの要望（生活全般）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/rss_d1.xml"
+      rss: "http://localhost.localdomain/atom/28_track.rss"
     request_foods:
       type: ["info", "request"]
       title: "被災者からの要望（食料）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/rss_d2.xml"
+      rss: "http://localhost.localdomain/atom/71_track.rss"
     request_goods:
       type: ["info", "request"]
       title: "被災者からの要望（物資・資材）"
-      rss: "http://xxx.xxx.xxx.xxx/rss/rss_d3.xml"
+      rss: "http://localhost.localdomain/atom/29_track.rss"
     shelter_status:
-      type: ["map", "georss", "search", "tv"]
+      type: ["map", "georss", "search"]
       title: "避難所開設・閉鎖情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/GeoRSS_shelter.xml"
+      rss: "http://localhost.localdomain/atom/2_track.rss"
     transport:
       type: ["map", "georss_group", "traffic"]
       title: "交通情報"
     traffic_control:
-      type: ["georss", "transport", "tv"]
+      type: ["georss", "transport"]
       title: "道路通行規制に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/GeoRSS_traffic_control.xml"
+      rss: "http://localhost.localdomain/atom/20_track.rss"
     traffic_jam:
-      type: ["georss", "transport", "tv"]
+      type: ["georss", "transport"]
       title: "道路渋滞に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/GeoRSS_traffic_jam.xml"
+      rss: "http://localhost.localdomain/atom/21_track.rss"
+    road_construction:
+      type: ["georss", "transport"]
+      title: "道路工事に関する情報"
+      rss: "http://localhost.localdomain/atom/25_track.rss"
     road_status:
-      type: ["georss", "transport", "tv"]
+      type: ["georss", "transport"]
       title: "道路路面状況に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/27_track.rss"
     train_traffic:
-      type: ["georss", "transport", "tv"]
+      type: ["georss", "transport"]
       title: "鉄道の運行に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/42_track.rss"
     bus_traffic:
-      type: ["georss", "transport", "tv"]
+      type: ["georss", "transport"]
       title: "バスの運行に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/72_track.rss"
     air_traffic:
-      type: ["georss", "transport", "tv"]
+      type: ["georss", "transport"]
       title: "航空路の運行に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/73_track.rss"
     ship_traffic:
-      type: ["georss", "transport", "tv"]
+      type: ["georss", "transport"]
       title: "船舶路の運行に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/74_track.rss"
     other_traffic:
-      type: ["georss", "transport", "tv"]
+      type: ["georss", "transport"]
       title: "その他公共交通の運行に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/75_track.rss"
     lifeline:
       type: ["map", "georss_group"]
       title: "ライフライン情報"
     water_supply:
       type: ["georss", "lifeline"]
       title: "給水に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/55_track.rss"
     power_supply:
       type: ["georss", "lifeline"]
       title: "電気に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/50_track.rss"
     water_system:
       type: ["georss", "lifeline"]
       title: "上水道に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/43_track.rss"
     sewage_system:
       type: ["georss", "lifeline"]
       title: "下水道に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/44_track.rss"
     gas_system:
       type: ["georss", "lifeline"]
       title: "ガスに関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/45_track.rss"
     network_system:
       type: ["georss", "lifeline"]
       title: "通信網に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/46_track.rss"
     emergency_broadcast:
       type: ["georss", "lifeline"]
       title: "臨時災害放送に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/51_track.rss"
     life:
       type: ["map", "georss_group"]
       title: "生活情報"
+    administrative_procedure:
+      type: ["georss", "life"]
+      title: "行政手続きに関する情報"
+      rss: "http://localhost.localdomain/atom/52_track.rss"
+    morgue_info:
+      type: ["georss", "life"]
+      title: "安置所に関する情報"
+      rss: "http://localhost.localdomain/atom/62_track.rss"
+    found_info:
+      type: ["georss", "life"]
+      title: "災害拾得物に関する情報"
+      rss: "http://localhost.localdomain/atom/63_track.rss"
     distribution_service:
       type: ["georss", "life"]
       title: "炊き出し・物資配布に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/60_track.rss"
     bath_service:
       type: ["georss", "life"]
       title: "入浴サービスに関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/61_track.rss"
     shop_info:
       type: ["georss", "life"]
       title: "営業店舗に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/66_track.rss"
     medical_info:
       type: ["georss", "life"]
       title: "医療に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/59_track.rss"
     welfare_info:
       type: ["georss", "life"]
       title: "健康・福祉・介護に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/56_track.rss"
     education_info:
       type: ["georss", "life"]
       title: "学校・幼稚園・保育所に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/54_track.rss"
     environment_info:
       type: ["georss", "life"]
       title: "環境に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/57_track.rss"
     crime_prevention:
       type: ["georss", "life"]
       title: "防犯に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/58_track.rss"
     volunteer_support:
       type: ["georss", "life"]
       title: "ボランティアの支援を受けたい方への情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/64_track.rss"
+    volunteer_job:
+      type: ["georss", "life"]
+      title: "ボランティア活動をしたい方への情報"
+      rss: "http://localhost.localdomain/atom/65_track.rss"
     other_support:
       type: ["georss", "life"]
       title: "その他の被災者支援に関する情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
-    weather:
-      type: ["map", "georss_group"]
-      title: "地震・津波・気象情報"
-    quake_warning:
-      type: ["georss", "weather"]
-      title: "地震速報/津波情報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
-    weather_warning:
-      type: ["georss", "weather"]
-      title: "注意報・警報"
-      rss: "http://xxx.xxx.xxx.xxx/rss/sample.xml"
+      rss: "http://localhost.localdomain/atom/53_track.rss"
+#    weather:
+#      type: ["map", "georss_group"]
+#      title: "地震・津波・気象情報"
+#    quake_warning:
+#      type: ["georss", "weather"]
+#      title: "地震速報/津波情報"
+#      rss: ""
+#    weather_warning:
+#      type: ["georss", "weather"]
+#      title: "注意報・警報"
+#      rss: ""
     shelter:
       type: ["map", "fusiontable", "search"]
       title: "避難所"
@@ -236,7 +258,7 @@ additions:
         select1: [["洪水ハザードマップ",1],["津波ハザードマップ",2],["地震防災マップ",3]]
         select2:
           select2_1: [["石巻地区",1],["河北地区",2],["河南地区",4],["桃生地区",5]]
-          select2_2: [["石巻地区",8],["河北地区",9],["雄勝地区",10],["河南地区",11],["北上地区",12],["牡鹿地区",13]]
+          select2_2: [["石巻地区",8],["河北地区",9],["雄勝地区",10],["北上地区",12],["牡鹿地区",13]]
           select2_3: [["石巻地区",14],["河北・桃生地区",15],["雄勝・北上地区",16],["河南地区",17],["牡鹿半島地区",18]]
         select3:
           select3_1:
@@ -277,55 +299,56 @@ additions:
             - ["地区5", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.604580,141.271600,14]]
             - ["地区6", [1,"1f967F_XFolCQ4yaHzFrrn2ND4X0FUNBBZi1JSWI",38.581033,141.271600,14]]
           select3_8:
-            - ["地区1", [2,"1g2d2dhgw79KU5oFsb5i1AWkm9dbGVGmyTybM8LI",38.452614,141.306446,14]]
-            - ["地区2", [2,"1Yowjm5qPdxRiXuqIiVPDio2FfPTsKGJUrD6XPt8",38.41345,141.292834,13]]
-            - ["地区3", [2,"1dXvL7ecQ2-pgDTHdJXaSwlWS4Diz2Hn4n5c5320",38.434026,141.389651,15]]
-            - ["地区4", [2,"1O19JCLt3c-ixs_Hds6vtuuqnv5uSGHiwKvEPACw",38.404371,141.391368,13]]
-            - ["地区5", [2,"1UK8bDsqXEk63CPF6O2QGe5aPSLUVY8ZAxqSmgZg",38.385333,141.472564,13]]
-            - ["地区6", [2,"1OxWRN4fgC7G0IkCzU66Q_1inlBr-H_ev5P985bk",38.349465,141.457357,13]]
-            - ["地区7", [2,"11-2Vy9H9PxCr9Yf-ju_xNTle2sZLYVB92rI8aug",38.29802,141.447058,13]]
+            - ["地区1", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.452925,141.311422,14]]
+            - ["地区2", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.413450,141.292834,13]]
+            - ["地区3", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.434026,141.389651,15]]
+            - ["地区4", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.403420,141.394721,13]]
+            - ["地区5", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.385323,141.472564,13]]
+            - ["地区6", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.349465,141.457357,13]]
+            - ["地区7", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.298035,141.447058,13]]
           select3_9:
-            - ["地区1", [2,"1b5GtavLXOfxdO8Gax9Zj3zxQsMZV3HxZBmRV4Sg",38.574474,141.464567,13]]
-            - ["地区2", [2,"1jk8fvBQjVAJanOM-6xndPTQKm2RT9Y_J_IIxqCU",38.544809,141.398478,13]]
+            - ["地区1", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.574474,141.464567,13]]
+            - ["地区2", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.544809,141.398478,13]]
           select3_10:
-            - ["地区1", [2,"1z-BD1RjxGiufrd2h1zJcffIlCNg6kRUDlpjm9nE",38.535007,141.504908,13]]
-            - ["地区2", [2,"1Q6BNrR7kPsG6AMmMBP-6mofb1H5Q7V-A-lQE3NU",38.496459,141.513491,13]]
-            - ["地区3", [2,"1dwuWS6acvLuSvpV4W6Y0394pU62dgheFG205blw",38.515518,141.470407,14]]
-          select3_11:
-            - ["地区1", [2,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地区1", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.535007,141.504908,13]]
+            - ["地区2", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.496459,141.513491,13]]
+            - ["地区3", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.515518,141.470407,14]]
           select3_12:
-            - ["地区1", [2,"1XlOGp8TWrPzqaC3XaTxska0m_tDS1v0x55Yos5A",38.611237,141.518297,13]]
-            - ["地区2", [2,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区3", [2,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+            - ["地区1", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.611237,141.518297,13]]
+            - ["地区3", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.451976,141.291676,12]]
           select3_13:
-            - ["地区1", [2,"1Cyn821lCcxWd_zCX4t1GYKOMNglP9vQKTECq0yc",38.268645,141.498899,13]]
-            - ["地区2", [2,"14F3Mli6q1RDn8fXUer9YqXTB1PT5JSNUPbqmIxQ",38.305968,141.468515,12]]
-            - ["地区3", [2,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地区4", [2,"1e6Iskr9kg6mtHld0zlorsuH8KTc4CA3P-ukadYU",38.295071,141.555376,13]]
-            - ["地区5", [2,"1nwEB2HTOQaIZZNTERbWRTXmZX1SkeWm6_E--WpM",38.350042,141.515379,13]]
-            - ["地区6", [2,"1tLI3Bw5uqORinatHOL9FK6w7vsHcffyNXNearlA",38.387217,141.515479,13]]
+            - ["地区1", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.270254,141.476003,13]]
+            - ["地区2", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.317409,141.475144,12]]
+            - ["地区4", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.295071,141.555376,13]]
+            - ["地区5", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.350042,141.515379,13]]
+            - ["地区6", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.387217,141.515479,13]]
           select3_14:
-            - ["揺れやすさマップ（～震度6弱）", [31,"1RF9sM7EmevY9AQv5dNgAv9fQrah2KRdUTFIb2Bw",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [32,"1RF9sM7EmevY9AQv5dNgAv9fQrah2KRdUTFIb2Bw",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [41,"1tOuoF28bi9uRED0mqkC54UjpQtZE8mGFbhrIDs4",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [42,"1tOuoF28bi9uRED0mqkC54UjpQtZE8mGFbhrIDs4",38.451976,141.291676,12]]
+#            - ["揺れやすさマップ（～震度4）", [31,"",38.422311,141.345955,12]]
+            - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.422311,141.345955,12]]
+            - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.422311,141.345955,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.422311,141.345955,12]]
+            - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.422311,141.345955,12]]
           select3_15:
-            - ["揺れやすさマップ（～震度6弱）", [31,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [32,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [41,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [42,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+#            - ["揺れやすさマップ（～震度4）", [31,"",38.552378,141.330505,12]]
+            - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.552378,141.330505,12]]
+            - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.552378,141.330505,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.552378,141.330505,12]]
+#            - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.552378,141.330505,12]]
           select3_16:
-            - ["揺れやすさマップ（～震度6弱）", [31,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [32,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [41,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [42,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+#            - ["揺れやすさマップ（～震度4）", [31,"",38.578685,141.477104,12]]
+            - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.578685,141.477104,12]]
+            - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.578685,141.477104,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.578685,141.477104,12]]
+#            - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.578685,141.477104,12]]
           select3_17:
-            - ["揺れやすさマップ（～震度6弱）", [31,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [32,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [41,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [42,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
+#            - ["揺れやすさマップ（～震度4）", [31,"",38.502153,141.266304,12]]
+            - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.502153,141.266304,12]]
+            - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.502153,141.266304,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.502153,141.266304,12]]
+#            - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.502153,141.266304,12]]
           select3_18:
-            - ["揺れやすさマップ（～震度6弱）", [31,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["揺れやすさマップ（震度6強～）", [32,"16tNZouVL-FVfUIy8Fc2lLRQRX801n-AftM4xftM",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度1～4）", [41,"1gsp-XQ8EFlqefXvXPxyyUFNCRALnnl3qqyzVq7A",38.451976,141.291676,12]]
-            - ["地域の危険度マップ（危険度5～7）", [42,"1gsp-XQ8EFlqefXvXPxyyUFNCRALnnl3qqyzVq7A",38.451976,141.291676,12]]
+#            - ["揺れやすさマップ（～震度4）", [31,"",38.302517,141.512467,12]]
+            - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.302517,141.512467,12]]
+            - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.302517,141.512467,12]]
+            - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.302517,141.512467,12]]
+            - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.302517,141.512467,12]]

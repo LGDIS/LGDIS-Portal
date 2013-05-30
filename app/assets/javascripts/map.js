@@ -39,10 +39,10 @@ var map, markers, infowindow;
       prop = {
         query: {select: 'geometry', from: docid},
         styles: [
-          { where: "rank = 1", markerOptions: {iconName: "large_blue"}  , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
-          { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"}, polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
-          { where: "rank = 3", markerOptions: {iconName: "large_yellow"}, polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
-          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"},polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} }
+          { where: "rank = 1", markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
+          { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
+          { where: "rank = 3", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
+          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} }
         ]
       };
       content.push('<p>浸水深</p>');
@@ -57,83 +57,89 @@ var map, markers, infowindow;
         styles: [
           { where: "rank = 1", markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
           { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
-          { where: "rank = 3", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
-          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} },
-          { where: "rank = 5", markerOptions: {iconName: "pink_circle"}  , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} }
+          { where: "rank = 3", markerOptions: {iconName: "large_green"}  , polygonOptions: {fillColor: "#00ff00", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ff00", strokeWeight: "4"} },
+          { where: "rank = 4", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
+          { where: "rank = 5", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} }
         ]
       };
       content.push('<p>浸水深</p>');
       content.push('<p><div class="color polygonBlue"></div>1.0m未満</p>');
       content.push('<p><div class="color polygonLtblu"></div>1.0m～2.0m</p>');
-      content.push('<p><div class="color polygonYellow"></div>2.0m～3.0m</p>');
-      content.push('<p><div class="color polygonOrange"></div>3.0m～4.0m</p>');
-      content.push('<p><div class="color polygonPink"></div>4.0m～5.0m</p>');
+      content.push('<p><div class="color polygonLtgrn"></div>2.0m～3.0m</p>');
+      content.push('<p><div class="color polygonYellow"></div>3.0m～4.0m</p>');
+      content.push('<p><div class="color polygonOrange"></div>4.0m～5.0m</p>');
       content.push('<p><div class="color polygonRed"></div>5.0m以上</p>');
     }else if(type==31){
       prop = {
-        query: {select: 'geometry', from: docid, where: 'rank < 7'},
+        query: {select: 'geometry', from: docid},
         styles: [
-          { where: "rank = 1", markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
-          { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
-          { where: "rank = 3", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
-          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} },
-          { where: "rank = 5", markerOptions: {iconName: "pink_circle"}  , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} }
+          { where: "rank = 1", markerOptions: {iconName: "large_purple"} , polygonOptions: {fillColor: "#8000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#8000ff", strokeWeight: "4"} },
+          { where: "rank = 2", markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
+          { where: "rank = 3", markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} }
         ]
       };
-      content.push('<p><div class="color polygonBlue"></div>震度2以下</p>');
-      content.push('<p><div class="color polygonLtblu"></div>震度3</p>');
-      content.push('<p><div class="color polygonYellow"></div>震度4</p>');
-      content.push('<p><div class="color polygonOrange"></div>震度5弱</p>');
-      content.push('<p><div class="color polygonPink"></div>震度5強</p>');
-      content.push('<p><div class="color polygonRed"></div>震度6弱</p>');
+      content.push('<p><div class="color polygonPurple"></div>震度2以下</p>');
+      content.push('<p><div class="color polygonBlue"></div>震度3</p>');
+      content.push('<p><div class="color polygonLtblu"></div>震度4</p>');
     }else if(type==32){
       prop = {
-        query: {select: 'geometry', from: docid, where: 'rank >= 7'},
+        query: {select: 'geometry', from: docid},
         styles: [
-          { where: "rank = 7" , markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
-          { where: "rank = 8" , markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
-          { where: "rank = 9" , markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
-          { where: "rank = 10", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} },
-          { where: "rank = 11", markerOptions: {iconName: "pink_circle"}  , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} }
+          { where: "rank = 4", markerOptions: {iconName: "large_green"}  , polygonOptions: {fillColor: "#006600", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#006600", strokeWeight: "4"} },
+          { where: "rank = 5", markerOptions: {iconName: "large_green"}  , polygonOptions: {fillColor: "#00ff00", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ff00", strokeWeight: "4"} },
+          { where: "rank = 6", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} }
         ]
       };
-      content.push('<p><div class="color polygonBlue"></div>震度6強 1</p>');
-      content.push('<p><div class="color polygonLtblu"></div>震度6強 2</p>');
-      content.push('<p><div class="color polygonYellow"></div>震度6強 3</p>');
-      content.push('<p><div class="color polygonOrange"></div>震度6強 4</p>');
-      content.push('<p><div class="color polygonPink"></div>震度6強 5</p>');
+      content.push('<p><div class="color polygonGreen"></div>震度5弱</p>');
+      content.push('<p><div class="color polygonLtgrn"></div>震度5強</p>');
+      content.push('<p><div class="color polygonYellow"></div>震度6弱</p>');
+    }else if(type==33){
+      prop = {
+        query: {select: 'geometry', from: docid},
+        styles: [
+          { where: "rank = 7" , markerOptions: {iconName: "pink_circle"}  , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} },
+          { where: "rank = 8" , markerOptions: {iconName: "pink_circle"}  , polygonOptions: {fillColor: "#ff99ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff99ff", strokeWeight: "4"} },
+          { where: "rank = 9" , markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} },
+          { where: "rank = 10", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff6600", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff6600", strokeWeight: "4"} },
+          { where: "rank = 11", markerOptions: {iconName: "large_red"}    , polygonOptions: {fillColor: "#660000", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#660000", strokeWeight: "4"} }
+        ]
+      };
+      content.push('<p><div class="color polygonPink"></div>震度6強-1</p>');
+      content.push('<p><div class="color polygonLtpnk"></div>震度6強-2</p>');
+      content.push('<p><div class="color polygonOrange"></div>震度6強-3</p>');
+      content.push('<p><div class="color polygonDkOrng"></div>震度6強-4</p>');
+      content.push('<p><div class="color polygonDkred"></div>震度6強-5</p>');
       content.push('<p><div class="color polygonRed"></div>震度7</p>');
     }else if(type==41){
       prop = {
-        query: {select: 'geometry', from: docid, where: 'rank < 5'},
+        query: {select: 'geometry', from: docid},
         styles: [
           { where: "rank = 1", markerOptions: {iconName: "large_blue"}   , polygonOptions: {fillColor: "#0000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#0000ff", strokeWeight: "4"} },
           { where: "rank = 2", markerOptions: {iconName: "ltblu_circle"} , polygonOptions: {fillColor: "#00ffff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ffff", strokeWeight: "4"} },
-          { where: "rank = 3", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} },
-          { where: "rank = 4", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} }
+          { where: "rank = 3", markerOptions: {iconName: "large_green"}  , polygonOptions: {fillColor: "#00ff00", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#00ff00", strokeWeight: "4"} },
+          { where: "rank = 4", markerOptions: {iconName: "large_yellow"} , polygonOptions: {fillColor: "#ffff00", fillOpacity: 0.5, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ffff00", strokeWeight: "4"} }
         ]
       };
       content.push('<p>危険度(木造建物全壊率)</p>');
       content.push('<p><div class="color polygonBlue"></div>危険度1(0～3%)</p>');
       content.push('<p><div class="color polygonLtblu"></div>危険度2(3～5%)</p>');
-      content.push('<p><div class="color polygonYellow"></div>危険度3(5～7%)</p>');
-      content.push('<p><div class="color polygonOrange"></div>危険度4(7～10%)</p>');
+      content.push('<p><div class="color polygonLtgrn"></div>危険度3(5～7%)</p>');
+      content.push('<p><div class="color polygonYellow"></div>危険度4(7～10%)</p>');
     }else if(type==42){
       prop = {
-        query: {select: 'geometry', from: docid, where: 'rank >= 5'},
+        query: {select: 'geometry', from: docid},
         styles: [
-          { where: "rank = 5", markerOptions: {iconName: "large_purple"}, polygonOptions: {fillColor: "#8000ff", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#8000ff", strokeWeight: "4"} },
+          { where: "rank = 5", markerOptions: {iconName: "orange_circle"}, polygonOptions: {fillColor: "#ff9900", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"}, polylineOptions: {strokeColor: "#ff9900", strokeWeight: "4"} },
           { where: "rank = 6", markerOptions: {iconName: "pink_circle"} , polygonOptions: {fillColor: "#ff0080", fillOpacity: 0.3, strokeColor: "#666666", strokeWeight: "1"},polylineOptions: {strokeColor: "#ff0080", strokeWeight: "4"} }
         ]
       };
       content.push('<p>危険度()</p>');
-      content.push('<p><div class="color polygonBlue"></div>危険度5(10～20%)</p>');
-      content.push('<p><div class="color polygonLtblu"></div>危険度6(20～30%)</p>');
-      content.push('<p><div class="color polygonYellow"></div>危険度7(30～%)</p>');
+      content.push('<p><div class="color polygonOrange"></div>危険度5(10～20%)</p>');
+      content.push('<p><div class="color polygonPink"></div>危険度6(20～30%)</p>');
+      content.push('<p><div class="color polygonRed"></div>危険度7(30～%)</p>');
     }
-alert(type + ':' + prop["query"]["from"]);
     var layer = new google.maps.FusionTablesLayer(prop);
-    // 中心点やzoomも固定指定ではなく、自動で取れるようには最終的にしたほうが良いかも
+    // FusionTablesLayerはKmlLayerと違って中心点やzoomを自動判定してくれない
     setCenter(lat, lng, zoom);
 
     layer.setMap(map);

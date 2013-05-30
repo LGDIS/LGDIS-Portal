@@ -52,4 +52,14 @@ module ApplicationHelper
     end
     html
   end
+
+  def url_with_noise(_url, _sec)
+    noize = Time.now.to_i/_sec
+    if _url.include?('?')
+      url = _url + '&noize=' + noize.to_s
+    else
+      url = _url + '?noize=' + noize.to_s
+    end
+    url
+  end
 end

@@ -10,10 +10,10 @@ module Georss
       @items = []
 
       if data && !data.empty? && data.instance_of?(Array) && count && count.size>0
-        begin
-          data.each do |d|
-            _id = d[:id]
-            _url = d[:url]
+        data.each do |d|
+          _id = d[:id]
+          _url = d[:url]
+          begin
             xml = Nokogiri::XML(open(_url).read)
             entry_nodes = xml.xpath('//xmlns:entry')
             entry_nodes.each do |entry_node|
@@ -32,17 +32,21 @@ module Georss
                 entry.polygon = element(entry_node.at('./georss:polygon',{'georss' => 'http://www.georss.org/georss'}))
                 @items.push entry
               end
-              break if !count.zero? && @items.size==count
+              #break if !count.zero? && @items.size==count
             end
+          rescue => e
+            @status = 1
+            message  = "xml(#{_url}) parse error #{e}:#{e.message}#{e.backtrace}\n"
+            Rails.logger.error(message)
           end
-          @status = 2 if @items.size==0
-        rescue
-          @status = 1
         end
-        if @status == 0
+        if @items.size!=0
+          @status = 0
           @items = @items.sort { |a,b| b.updated <=> a.updated }
           size = @items.size
           @items.slice!(count..(size-1)) if !count.zero? && count < size
+        else
+          @status = 2 if @status!=1
         end
       else
         @status = 3
@@ -76,10 +80,12 @@ module Georss
               end
             end
           end
-          @status = 2 if @items.size!=1
-        rescue
+        rescue => e
           @status = 1
+          message  = "xml(#{_url}) parse error #{e}:#{e.message}#{e.backtrace}\n"
+          Rails.logger.error(message)
         end
+        @status = 2 if @status==0 && @items.size!=1
       else
         @status = 3
       end
