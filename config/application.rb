@@ -15,7 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Portal
+module LgdisPortal
   class Application < Rails::Application
     # add
     config.autoload_paths += %W(#{config.root}/lib/additions)

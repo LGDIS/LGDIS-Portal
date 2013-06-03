@@ -1,4 +1,4 @@
-Portal::Application.routes.draw do
+LgdisPortal::Application.routes.draw do
   # add
   match 'info/:id', :to => 'additions#info'
   match 'info/:id/:entry_id', :to => 'additions#entry'
