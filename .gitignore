@@ -93,4 +93,6 @@ capybara-*html
 vendor/extensions/**/spec/dummy
 
 config/database.yml
+config/config.yml
+config/unicorn.rb
 
