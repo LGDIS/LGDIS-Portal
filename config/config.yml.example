@@ -40,183 +40,183 @@ additions:
     evacuation:
       type: ["disaster", "tv"]
       title: "避難勧告・指示"
-      rss: "http://localhost.localdomain/atom/1_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_1.rss"
     jalert_jma:
       type: ["disaster", "tv"]
       title: "J-ALERT発信（気象庁）"
-      rss: "http://localhost.localdomain/atom/78_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_78.rss"
     jalert_cas:
       type: ["disaster", "tv"]
       title: "J-ALERT発信（内閣官房）"
-      rss: "http://localhost.localdomain/atom/77_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_77.rss"
     jma_warning:
       type: ["disaster", "tv"]
       title: "気象庁発信（警報・注意報）"
-      rss: "http://localhost.localdomain/atom/4_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_4.rss"
     jma_other:
       type: ["disaster", "tv"]
       title: "気象庁発信（その他）"
-      rss: "http://localhost.localdomain/atom/3_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_3.rss"
     river_warning:
       type: ["disaster", "tv"]
       title: "河川管理者発信（警報・注意報）"
-      rss: "http://localhost.localdomain/atom/6_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_6.rss"
     river_other:
       type: ["disaster", "tv"]
       title: "河川管理者発信（その他）"
-      rss: "http://localhost.localdomain/atom/5_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_5.rss"
     emergency:
       type: ["disaster", "tv"]
       title: "災害対策本部設置"
-      rss: "http://localhost.localdomain/atom/16_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_16.rss"
     request:
       type: ["info_group"]
       title: "被災者からの要望"
     request_life:
       type: ["info", "request"]
       title: "被災者からの要望（生活全般）"
-      rss: "http://localhost.localdomain/atom/28_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_28.rss"
     request_foods:
       type: ["info", "request"]
       title: "被災者からの要望（食料）"
-      rss: "http://localhost.localdomain/atom/71_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_71.rss"
     request_goods:
       type: ["info", "request"]
       title: "被災者からの要望（物資・資材）"
-      rss: "http://localhost.localdomain/atom/29_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_29.rss"
     shelter_status:
       type: ["map", "georss", "search"]
       title: "避難所開設・閉鎖情報"
-      rss: "http://localhost.localdomain/atom/2_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_2.rss"
     transport:
       type: ["map", "georss_group", "traffic"]
       title: "交通情報"
     traffic_control:
       type: ["georss", "transport"]
       title: "道路通行規制に関する情報"
-      rss: "http://localhost.localdomain/atom/20_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_20.rss"
     traffic_jam:
       type: ["georss", "transport"]
       title: "道路渋滞に関する情報"
-      rss: "http://localhost.localdomain/atom/21_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_21.rss"
     road_construction:
       type: ["georss", "transport"]
       title: "道路工事に関する情報"
-      rss: "http://localhost.localdomain/atom/25_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_25.rss"
     road_status:
       type: ["georss", "transport"]
       title: "道路路面状況に関する情報"
-      rss: "http://localhost.localdomain/atom/27_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_27.rss"
     train_traffic:
       type: ["georss", "transport"]
       title: "鉄道の運行に関する情報"
-      rss: "http://localhost.localdomain/atom/42_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_42.rss"
     bus_traffic:
       type: ["georss", "transport"]
       title: "バスの運行に関する情報"
-      rss: "http://localhost.localdomain/atom/72_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_72.rss"
     air_traffic:
       type: ["georss", "transport"]
       title: "航空路の運行に関する情報"
-      rss: "http://localhost.localdomain/atom/73_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_73.rss"
     ship_traffic:
       type: ["georss", "transport"]
       title: "船舶路の運行に関する情報"
-      rss: "http://localhost.localdomain/atom/74_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_74.rss"
     other_traffic:
       type: ["georss", "transport"]
       title: "その他公共交通の運行に関する情報"
-      rss: "http://localhost.localdomain/atom/75_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_75.rss"
     lifeline:
       type: ["map", "georss_group"]
       title: "ライフライン情報"
     water_supply:
       type: ["georss", "lifeline"]
       title: "給水に関する情報"
-      rss: "http://localhost.localdomain/atom/55_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_55.rss"
     power_supply:
       type: ["georss", "lifeline"]
       title: "電気に関する情報"
-      rss: "http://localhost.localdomain/atom/50_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_50.rss"
     water_system:
       type: ["georss", "lifeline"]
       title: "上水道に関する情報"
-      rss: "http://localhost.localdomain/atom/43_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_43.rss"
     sewage_system:
       type: ["georss", "lifeline"]
       title: "下水道に関する情報"
-      rss: "http://localhost.localdomain/atom/44_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_44.rss"
     gas_system:
       type: ["georss", "lifeline"]
       title: "ガスに関する情報"
-      rss: "http://localhost.localdomain/atom/45_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_45.rss"
     network_system:
       type: ["georss", "lifeline"]
       title: "通信網に関する情報"
-      rss: "http://localhost.localdomain/atom/46_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_46.rss"
     emergency_broadcast:
       type: ["georss", "lifeline"]
       title: "臨時災害放送に関する情報"
-      rss: "http://localhost.localdomain/atom/51_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_51.rss"
     life:
       type: ["map", "georss_group"]
       title: "生活情報"
     administrative_procedure:
       type: ["georss", "life"]
       title: "行政手続きに関する情報"
-      rss: "http://localhost.localdomain/atom/52_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_52.rss"
     morgue_info:
       type: ["georss", "life"]
       title: "安置所に関する情報"
-      rss: "http://localhost.localdomain/atom/62_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_62.rss"
     found_info:
       type: ["georss", "life"]
       title: "災害拾得物に関する情報"
-      rss: "http://localhost.localdomain/atom/63_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_63.rss"
     distribution_service:
       type: ["georss", "life"]
       title: "炊き出し・物資配布に関する情報"
-      rss: "http://localhost.localdomain/atom/60_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_60.rss"
     bath_service:
       type: ["georss", "life"]
       title: "入浴サービスに関する情報"
-      rss: "http://localhost.localdomain/atom/61_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_61.rss"
     shop_info:
       type: ["georss", "life"]
       title: "営業店舗に関する情報"
-      rss: "http://localhost.localdomain/atom/66_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_66.rss"
     medical_info:
       type: ["georss", "life"]
       title: "医療に関する情報"
-      rss: "http://localhost.localdomain/atom/59_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_59.rss"
     welfare_info:
       type: ["georss", "life"]
       title: "健康・福祉・介護に関する情報"
-      rss: "http://localhost.localdomain/atom/56_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_56.rss"
     education_info:
       type: ["georss", "life"]
       title: "学校・幼稚園・保育所に関する情報"
-      rss: "http://localhost.localdomain/atom/54_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_54.rss"
     environment_info:
       type: ["georss", "life"]
       title: "環境に関する情報"
-      rss: "http://localhost.localdomain/atom/57_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_57.rss"
     crime_prevention:
       type: ["georss", "life"]
       title: "防犯に関する情報"
-      rss: "http://localhost.localdomain/atom/58_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_58.rss"
     volunteer_support:
       type: ["georss", "life"]
       title: "ボランティアの支援を受けたい方への情報"
-      rss: "http://localhost.localdomain/atom/64_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_64.rss"
     volunteer_job:
       type: ["georss", "life"]
       title: "ボランティア活動をしたい方への情報"
-      rss: "http://localhost.localdomain/atom/65_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_65.rss"
     other_support:
       type: ["georss", "life"]
       title: "その他の被災者支援に関する情報"
-      rss: "http://localhost.localdomain/atom/53_track.rss"
+      rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_53.rss"
 #    weather:
 #      type: ["map", "georss_group"]
 #      title: "地震・津波・気象情報"
