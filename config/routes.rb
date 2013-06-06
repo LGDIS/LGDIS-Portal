@@ -5,7 +5,7 @@ LgdisPortal::Application.routes.draw do
   match 'map/:id', :to => 'additions#map'
   match 'help/:id/:item', :to => 'additions#help'
   match 'help/:id', :to => 'additions#help'
-  match 'tv', :to => 'additions#tv'
+  match 'signage', :to => 'additions#tv'
 
   # This line mounts Refinery's routes at the root of your application.
   # This means, any requests to the root URL of your application will go to Refinery::PagesController#home.
