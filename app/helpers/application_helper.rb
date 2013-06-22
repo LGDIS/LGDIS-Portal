@@ -47,8 +47,8 @@ module ApplicationHelper
           html += '<li>' + item.updated + ' ' + slice_list_title(item.title) + '</li>'
         end
         html += '</ul>'
+        html += '<div class="nl_right">' + link_to(">> 一覧", "/info/disaster", :class => "nl") + '</div>'
       end
-      html += '<div class="nl_right">' + link_to(">> 一覧", "/info/disaster", :class => "nl") + '</div>'
     end
     html
   end

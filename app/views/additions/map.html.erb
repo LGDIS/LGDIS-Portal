@@ -1,9 +1,18 @@
 <% content_for :javascripts do %>
-  <%= javascript_include_tag '//maps.google.com/maps/api/js?sensor=false&language=ja&libraries=places' %>
+  <% if ::CONF['googlemaps']['clientid'].present? -%>
+    <%= javascript_include_tag('//maps.google.com/maps/api/js?client=' + ::CONF['googlemaps']['clientid'] + '&sensor=false&language=ja&libraries=places') %>
+  <% elsif ::CONF['googlemaps']['apikey'].present? -%>
+    <%= javascript_include_tag('//maps.google.com/maps/api/js?key=' + ::CONF['googlemaps']['apikey'] + '&sensor=false&language=ja&libraries=places') %>
+  <% else -%>
+    <%= javascript_include_tag('//maps.google.com/maps/api/js?sensor=false&language=ja&libraries=places') %>
+  <% end -%>
   <%= javascript_include_tag 'map.js' %>
   <script type="text/javascript">
     function map_init() {
       init();
+      <% if ::CONF['additions']['data'][@id]['type'].include?("draw") -%>
+        clickable();
+      <% end -%>
       <% if ::CONF['additions']['data'][@id]['type'].include?("georss") -%>
         putMarkersByKml("<%= url_with_noise(::CONF['additions']['data'][@id]['rss'], ::CONF['additions']['map']['noise_interval']) %>");
       <% end -%>
@@ -70,29 +79,46 @@
     <button type="button" onClick="removeTraffic();" id="trafficOff" class="hidden">Google 交通情報を表示させない</button>
   </div>
 <% end -%>
-<% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
-  <div class="wrap">
-    <div id="if_georss"></div>
-  </div>
-<% end -%>
 <% if ::CONF['additions']['data'][@id]['type'].include?("search") -%>
   <div class="wrap">
     <%= form_tag("", :id => "search_map") do %>
     <h3 class="title">住所から探す</h3>
     <p>
       住所を入力して検索ボタンをクリックするとその場所の地図を表示します。<br />
-      <%= text_field_tag("search_address") %><%= submit_tag "検索", :onclick => ("searchAddress();"), :name => "sa", :type => "button" %>
+      <%= text_field_tag("search_address") %> <%= submit_tag "検索", :onclick => ("searchAddress();"), :name => "sa", :type => "button" %>
     </p>
     <h3 class="title">目標物・施設から探す</h3>
     <p>
       施設名から検索可能です。<br />
-      <%= text_field_tag("search_place") %><%= submit_tag "検索", :onclick => ("searchPlace();"), :name => "sp", :type => "button" %>
+      <%= text_field_tag("search_place") %> <%= submit_tag "検索", :onclick => ("searchPlace();"), :name => "sp", :type => "button" %>
     </p>
     <h3 class="title">経路を探す</h3>
     <p>
       出発点（A）<%= text_field_tag("search_from") %> → 到着点（B）<%= text_field_tag("search_to") %> <%= submit_tag "検索", :onclick => ("searchRoute();"), :name => "sr", :type => "button" %>
+      <span id="calc_route" style="font-size: 95%;"></span>
     </p>
     <% end %>
+  </div>
+<% end -%>
+<% if ::CONF['additions']['data'][@id]['type'].include?("draw") -%>
+  <div class="wrap">
+    <%= form_tag("", :id => "draw_map") do %>
+    <h3 class="title">地図を操作する</h3>
+    <p>
+      地図をクリックして、ポイントを配置すると、以下で選択した情報が表示されます。<br />
+      <span style="margin-left: 25px; margin-right: 20px;" id="calc_result">総距離： <span class="calc">0.000</span> km</span>（<span class="nl" onclick="removeSelfMarkers();">ポイントを削除する</span>）
+    </p>
+    <p>
+      <input type="radio" name="drawing" id ="draw_route" onclick ="setDrawing();" checked = "checked" /> 2箇所のポイント間の経路を検索します<br />
+      <input type="radio" name="drawing" id ="draw_line" onclick ="setDrawing();" /> 2箇所以上のポイントの直線距離を計算します<br />
+      <input type="radio" name="drawing" id ="draw_area" onclick ="setDrawing();" /> 3箇所以上のポイント間の面積を計算します<br />
+    </p>
+    <% end %>
+  </div>
+<% end -%>
+<% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
+  <div class="wrap">
+    <div id="if_georss"></div>
   </div>
 <% end -%>
 <% if ::CONF['additions']['data'][@id]['help'].instance_of?(Hash) -%>

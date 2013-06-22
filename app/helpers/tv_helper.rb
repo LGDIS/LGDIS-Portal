@@ -14,7 +14,7 @@ module TvHelper
         if i != @feed.items.size
           html += '<tr><td colspan="3"><hr /></td></tr>'
         end
-        if item.point.blank?
+        if item.point.present?
           markers += '&markers=color:' + colors[i-1] + '%7Clabel:' + i.to_s + '%7C' + item.point.tr(" ", ",")
         end
       end
@@ -22,7 +22,7 @@ module TvHelper
     html += '</table>'
     html += '</td>'
     html += '<td valign="top" align="center">'
-    if markers.blank?
+    if markers.present?
       html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap'+ markers +'&sensor=false">'
     else
       html += '<img src="http://maps.googleapis.com/maps/api/staticmap?center=38.45,141.38&zoom=11&size=400x400&maptype=roadmap&sensor=false">'

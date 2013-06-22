@@ -1,4 +1,7 @@
 ﻿# encoding: utf-8
+googlemaps:
+  clientid: ""
+  apikey: ""
 time:
   formats:
     ja: "%Y年%m月%d日 %H時%M分"
@@ -85,11 +88,11 @@ additions:
       title: "被災者からの要望（物資・資材）"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_29.rss"
     shelter_status:
-      type: ["map", "georss", "search"]
+      type: ["map", "georss", "search", "draw"]
       title: "避難所開設・閉鎖情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_2.rss"
     transport:
-      type: ["map", "georss_group", "traffic"]
+      type: ["map", "georss_group", "traffic", "draw"]
       title: "交通情報"
     traffic_control:
       type: ["georss", "transport"]
@@ -229,7 +232,7 @@ additions:
 #      title: "注意報・警報"
 #      rss: ""
     shelter:
-      type: ["map", "fusiontable", "search"]
+      type: ["map", "fusiontable", "search", "draw"]
       title: "避難所"
       selection:
         select1: [["避難生活避難所(避難所)",1],["緊急一時避難所・避難場所",2]]

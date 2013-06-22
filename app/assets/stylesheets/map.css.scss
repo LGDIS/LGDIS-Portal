@@ -104,6 +104,16 @@
 .disp {
   display: inline;
 }
+#search_map {
+  input[type="text"] {
+    width: 150px;
+  }
+}
+#draw_map {
+  .calc {
+    font-weight: bold;
+  }
+}
 ul.help {
   margin: 0;
   padding: 0;
