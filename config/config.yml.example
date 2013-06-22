@@ -1,6 +1,9 @@
 ﻿# encoding: utf-8
 googlemaps:
+#「For Business」を利用：「clientid」と「signature」を指定
+##「Google Account」のKeyを利用：「apikey」を指定
   clientid: ""
+  signature: ""
   apikey: ""
 time:
   formats:

@@ -23,7 +23,13 @@ module TvHelper
     html += '</td>'
     html += '<td valign="top" align="center">'
     if markers.present?
-      html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap'+ markers +'&sensor=false">'
+      if ::CONF['googlemaps']['clientid'].present? && ::CONF['googlemaps']['signature'].present?
+        html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap' + markers + '&sensor=false&client=' + ::CONF['googlemaps']['clientid'] + '&signature=' + ::CONF['googlemaps']['signature'] + '">'
+      elsif ::CONF['googlemaps']['apikey'].present?
+        html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap' + markers + '&sensor=false&key=' + ::CONF['googlemaps']['apikey'] + '">'
+      else
+        html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap' + markers + '&sensor=false">'
+      end
     else
       html += '<img src="http://maps.googleapis.com/maps/api/staticmap?center=38.45,141.38&zoom=11&size=400x400&maptype=roadmap&sensor=false">'
     end
