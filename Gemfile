@@ -1,13 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# Pg is the Ruby interface to the PostgreSQL RDBMS.
-# It works with PostgreSQL 8.3 and later.
 gem 'pg'
+gem 'therubyracer'
+gem 'jpmobile', '~> 3.0.0'
+gem 'nokogiri'
+gem "refinerycms-news", '~> 2.0.0'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -16,7 +19,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -30,7 +33,7 @@ gem 'jquery-rails', '~> 2.0.0'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-gem 'unicorn'
+ gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -39,14 +42,13 @@ gem 'unicorn'
 # gem 'debugger'
 
 # Refinery CMS
-gem 'refinerycms', '~> 2.0.0'
+gem 'refinerycms', '~> 2.0.0', :git => 'git://github.com/refinery/refinerycms.git', :branch => '2-0-stable'
 
 # Specify additional Refinery CMS Extensions here (all optional):
 gem 'refinerycms-i18n', '~> 2.0.0'
-gem 'refinerycms-blog', '~> 2.0.0'
-gem 'refinerycms-inquiries', '~> 2.0.0'
-gem 'refinerycms-search', '~> 2.0.0'
-gem 'refinerycms-page-images', '~> 2.0.0'
+  gem 'refinerycms-blog', '~> 2.0.0'
+  gem 'refinerycms-inquiries', '~> 2.0.0'
+  gem 'refinerycms-search', '~> 2.0.0'
+  gem 'refinerycms-page-images', '~> 2.0.0'
 
-# jpmobile is Rails plugin for Japanese mobile-phones.
-gem 'jpmobile'
+gem 'refinerycms-marquees', :path => 'vendor/extensions'
