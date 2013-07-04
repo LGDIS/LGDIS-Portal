@@ -232,8 +232,8 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jpmobile (~> 3.0.0)
   jquery-rails (~> 2.0.0)
-  nokogiri
-  pg
+  nokogiri (= 1.6.0)
+  pg (= 0.15.1)
   rails (= 3.2.13)
   refinerycms (~> 2.0.0)!
   refinerycms-blog (~> 2.0.0)
@@ -244,6 +244,6 @@ DEPENDENCIES
   refinerycms-page-images (~> 2.0.0)
   refinerycms-search (~> 2.0.0)
   sass-rails (~> 3.2.3)
-  therubyracer
+  therubyracer (= 0.11.4)
   uglifier (>= 1.0.3)
-  unicorn
+  unicorn (= 4.6.3)
