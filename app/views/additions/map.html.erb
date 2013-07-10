@@ -10,19 +10,17 @@
   <script type="text/javascript">
     function map_init() {
       init();
-      <% if ::CONF['additions']['data'][@id]['type'].include?("draw") -%>
+      <% if @types.include?("draw") -%>
         clickable();
       <% end -%>
-      <% if ::CONF['additions']['data'][@id]['type'].include?("georss") -%>
-        putMarkersByKml("<%= url_with_noise(::CONF['additions']['data'][@id]['rss'], ::CONF['additions']['map']['noise_interval']) %>");
-      <% end -%>
+      <%= raw js_for_georss_map(@feed) %>
     }
-  <% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
+  <% if @types.include?("georss_group") || @group.present? -%>
     $(function() {
       dispChild("select","select_submit");
     });
   <% end -%>
-  <% if ::CONF['additions']['data'][@id]['type'].include?("fusiontable") -%>
+  <% if @types.include?("fusiontable") -%>
     $(function() {
     <% ::CONF['additions']['data'][@id]['selection'].each_key.with_index(1) do |key, i| -%>
       <% if i==::CONF['additions']['data'][@id]['selection'].size -%>
@@ -40,18 +38,15 @@
 </section>
 <section id="body_content_right">
   <div class="wrap">
-    <h2 class="title"><%= ::CONF['additions']['data'][@id]['title'] %></h2>
-<% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
+    <h2 class="title"><%= @group.present? ? ::CONF['additions']['data'][@group]['title'] : ::CONF['additions']['data'][@id]['title'] %></h2>
+<% if @types.include?("georss_group") || @group.present? -%>
     表示したいマップの種類を選択してください。
     <%= form_tag("", :id => "select_map") do %>
-      <%= select_tag "select", options_from_collection_for_select(@items, :id, :title), :prompt => "選択してください", :class => "disp" %>
-      <% @items.each do |item| -%>
-        <%= hidden_field_tag 'select_'+item.id, url_with_noise(item.rss, ::CONF['additions']['map']['noise_interval']) %>
-      <% end -%>
-      　<%= submit_tag "この内容で地図を表示", :onclick => raw("dispGeorss('select');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
+      <%= select_tag "select", options_from_collection_for_select(@selections, :id, :title, @id), :prompt => "選択してください", :class => "disp" %>
+      　<%= submit_tag "この内容で地図を表示", :onclick => raw("moveGeorss('select');"), :name => "select_submit", :type => "button", :class => "hidden", :id => "select_submit" %>
     <% end %>
 <% end -%>
-<% if ::CONF['additions']['data'][@id]['type'].include?("fusiontable") -%>
+<% if @types.include?("fusiontable") -%>
     表示したいマップの種類と地区を選択してください。
     <%= form_tag("", :id => "select_map") do %>
       <% ::CONF['additions']['data'][@id]['selection'].each_key.with_index(1) do |key, i| -%>
@@ -73,13 +68,13 @@
 <% end -%>
   </div>
   <div id="googlemap"></div>
-<% if ::CONF['additions']['data'][@id]['type'].include?("traffic") -%>
+<% if @types.include?("traffic") -%>
   <div class="wrap">
     <button type="button" onClick="setTraffic();" id="trafficOn" class="disp">Google 交通情報を表示する</button>
     <button type="button" onClick="removeTraffic();" id="trafficOff" class="hidden">Google 交通情報を表示させない</button>
   </div>
 <% end -%>
-<% if ::CONF['additions']['data'][@id]['type'].include?("search") -%>
+<% if @types.include?("search") -%>
   <div class="wrap">
     <%= form_tag("", :id => "search_map") do %>
     <h3 class="title">住所から探す</h3>
@@ -100,7 +95,7 @@
     <% end %>
   </div>
 <% end -%>
-<% if ::CONF['additions']['data'][@id]['type'].include?("draw") -%>
+<% if @types.include?("draw") -%>
   <div class="wrap">
     <%= form_tag("", :id => "draw_map") do %>
     <h3 class="title">地図を操作する</h3>
@@ -116,9 +111,20 @@
     <% end %>
   </div>
 <% end -%>
-<% if ::CONF['additions']['data'][@id]['type'].include?("georss_group") -%>
+<% if @group.present? -%>
   <div class="wrap">
-    <div id="if_georss"></div>
+    <div id="feed_list">
+      <div>
+        <% if @feed.status == 0 -%>
+          <% @feed.items.each do |item| -%>
+            <h4 class="title"><%= item.title %></h4>
+            <p><%= raw item.content %></p>
+          <% end -%>
+        <% else -%>
+            <p><%= ::CONF['additions']['info']['status_' + @feed.status.to_s] %></p>
+        <% end -%>
+      </div>
+    </div>
   </div>
 <% end -%>
 <% if ::CONF['additions']['data'][@id]['help'].instance_of?(Hash) -%>

@@ -176,6 +176,36 @@ var myPolygon = new google.maps.Polygon;
     data_markers.push(layer);
   }
 
+//  function putRssMarkers(rssPoints) {
+//    removeMarkers(data_markers);
+//    map.setCenter(new google.maps.LatLng(38.434228,141.303177));
+//    map.setZoom(10);
+//    for(var i=0; i < rssPoints.length; i++) {
+//      var image = new google.maps.MarkerImage('http://maps.google.co.jp/mapfiles/ms/icons/blue-dot.png', new google.maps.Size(32, 32), new google.maps.Point(0,0), new google.maps.Point(16, 31));
+//      var latlng = new google.maps.LatLng(rssPoints[i]['point']);
+//      var marker = new google.maps.Marker({ position: latlng, map: map, index_number: i, icon: image, draggable: false });
+//      data_markers.push(marker);
+//    }
+//  }
+
+  function putRssMarkers() {
+    removeMarkers(data_markers);
+    map.setCenter(new google.maps.LatLng(38.434228,141.303177));
+    map.setZoom(10);
+  }
+
+  function setRssMarker(lat, lng, info) {
+    var image = new google.maps.MarkerImage('http://maps.google.co.jp/mapfiles/ms/icons/blue-dot.png', new google.maps.Size(32, 32), new google.maps.Point(0,0), new google.maps.Point(16, 31));
+    var latlng = new google.maps.LatLng(lat,lng);
+    var marker = new google.maps.Marker({ position: latlng, icon: image, draggable: false });
+    marker.setMap(map);
+    google.maps.event.addListener(marker, 'click', function() {
+      info_window.setContent(info);
+      info_window.open(map, this);
+    });
+    data_markers.push(marker);
+  }
+
   function setTraffic() {
     traffic.setMap(map);
     $('#trafficOn').removeClass('hidden disp').addClass("hidden");
@@ -435,18 +465,10 @@ function dispChild(parent, child) {
     }
   }).trigger("change");
 }
-function dispGeorss(name) {
-  $('#if_georss').empty();
+function moveGeorss(name) {
   var id = $('#'+name).val();
   if(id) {
-    var val = $('#'+name+'_'+id).val();
-    if(val) {
-      putMarkersByKml(val);
-      var html = '<iframe class="if_georss" seamless marginwidth="0" marginheight="0" frameborder="0" src="/help/' +id+ '" width="100%"></iframe>';
-      $('#if_georss').html(html);
-    }else{
-      alert('マップの種類を選択してください');
-    }
+    window.location.href = '/map/' + id
   }else{
     alert('マップの種類を選択してください');
   }

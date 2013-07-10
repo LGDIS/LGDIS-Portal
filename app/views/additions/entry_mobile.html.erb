@@ -1,4 +1,4 @@
-<% if ::CONF['additions']['data'][@id]['type'].include?("disaster") -%>
+<% if @types.include?("disaster") -%>
   <center><font color="#778899"><b><%= ::CONF['additions']['data']['disaster']['title'] %></b></font></center><hr color="#4975d4" />
 <% else -%>
   <center><font color="#778899"><b><%= ::CONF['additions']['data'][@id]['title'] %></b></font></center><hr color="#4975d4" />
@@ -20,7 +20,7 @@
 <% end -%>
 <br />
 <hr color="#4975d4" />
-<% if ::CONF['additions']['data'][@id]['type'].include?("disaster") -%>
+<% if @types.include?("disaster") -%>
   &lt;&lt;&nbsp;<%= link_to ::CONF['additions']['data']['disaster']['title']+"一覧へ戻る", "/info/disaster" %><br />
 <% else -%>
   &lt;&lt;&nbsp;<%= link_to ::CONF['additions']['data'][@id]['title']+"一覧へ戻る", "/info/"+@id %><br />

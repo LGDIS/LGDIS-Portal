@@ -123,8 +123,14 @@ ul.help {
     padding: 4px 20px;
   }
 }
-.if_georss {
-  border: 1px solid #e3eae9;
+#feed_list {
+  border: 1px solid #ccc;
   margin: 0px;
-  width:630px;
+  width: 630px;
+  max-height: 150px;
+  overflow: auto;
+  div {
+    width: 580px;
+    margin: 0px auto;
+  }
 }

@@ -53,6 +53,23 @@ module ApplicationHelper
     html
   end
 
+  def mobile_menu()
+    html1 = ''
+    html2 = ''
+    ::CONF['additions']['data'].each_key do |id|
+      _type = ::CONF['additions']['data'][id.to_s]['type']
+      if _type.include?("map")
+        if ( _type.include?("georss") || _type.include?("georss_group") ) && !(::CONF['additions']['data'][id.to_s].keys.include?('group'))
+          html1 += '<dt>◇' + link_to(::CONF['additions']['data'][id.to_s]['title'], '/info/'+id.to_s) + '</dt>' + "\n"
+        end
+      end
+      if _type.include?("info_group")
+        html2 += '<dt>◇' + link_to(::CONF['additions']['data'][id.to_s]['title'], '/info/'+id.to_s) + '</dt>' + "\n"
+      end
+    end
+    html1 + html2
+  end
+
   def url_with_noise(_url, _sec)
     noize = Time.now.to_i/_sec
     if _url.include?('?')

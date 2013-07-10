@@ -14,7 +14,12 @@
 <% else -%>
   <dl>
     <% ::CONF['additions']['data'].each_key do |id| -%>
-      <% if ( ::CONF['additions']['data'][@id]['type'].include?("info_group") || ::CONF['additions']['data'][@id]['type'].include?("georss_group") ) && ::CONF['additions']['data'][id.to_s]['type'].include?(@id) -%>
+      <% if @types.include?("georss_group") && ::CONF['additions']['data'][id.to_s].keys.include?('group') -%>
+        <% if ::CONF['additions']['data'][id.to_s]['group'] == @id -%>
+          <dt>◇<%= link_to ::CONF['additions']['data'][id.to_s]['title'], '/info/'+id.to_s %></dt>
+        <% end -%>
+      <% end -%>
+      <% if @types.include?("info_group") && ::CONF['additions']['data'][id.to_s]['type'].include?(@id) -%>
         <dt>◇<%= link_to ::CONF['additions']['data'][id.to_s]['title'], '/info/'+id.to_s %></dt>
       <% end -%>
     <% end -%>

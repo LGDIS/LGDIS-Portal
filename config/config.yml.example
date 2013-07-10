@@ -98,129 +98,159 @@ additions:
       type: ["map", "georss_group", "traffic", "draw"]
       title: "交通情報"
     traffic_control:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "道路通行規制に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_20.rss"
     traffic_jam:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "道路渋滞に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_21.rss"
     road_construction:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "道路工事に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_25.rss"
     road_status:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "道路路面状況に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_27.rss"
     train_traffic:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "鉄道の運行に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_42.rss"
     bus_traffic:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "バスの運行に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_72.rss"
     air_traffic:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "航空路の運行に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_73.rss"
     ship_traffic:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "船舶路の運行に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_74.rss"
     other_traffic:
-      type: ["georss", "transport"]
+      type: ["map", "georss", "traffic", "draw"]
+      group: "transport"
       title: "その他公共交通の運行に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_75.rss"
     lifeline:
       type: ["map", "georss_group"]
       title: "ライフライン情報"
     water_supply:
-      type: ["georss", "lifeline"]
+      type: ["map", "georss"]
+      group: "lifeline"
       title: "給水に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_55.rss"
     power_supply:
-      type: ["georss", "lifeline"]
+      type: ["map", "georss"]
+      group: "lifeline"
       title: "電気に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_50.rss"
     water_system:
-      type: ["georss", "lifeline"]
+      type: ["map", "georss"]
+      group: "lifeline"
       title: "上水道に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_43.rss"
     sewage_system:
-      type: ["georss", "lifeline"]
+      type: ["map", "georss"]
+      group: "lifeline"
       title: "下水道に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_44.rss"
     gas_system:
-      type: ["georss", "lifeline"]
+      type: ["map", "georss"]
+      group: "lifeline"
       title: "ガスに関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_45.rss"
     network_system:
-      type: ["georss", "lifeline"]
+      type: ["map", "georss"]
+      group: "lifeline"
       title: "通信網に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_46.rss"
     emergency_broadcast:
-      type: ["georss", "lifeline"]
+      type: ["map", "georss"]
+      group: "lifeline"
       title: "臨時災害放送に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_51.rss"
     life:
       type: ["map", "georss_group"]
       title: "生活情報"
     administrative_procedure:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "行政手続きに関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_52.rss"
     morgue_info:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "安置所に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_62.rss"
     found_info:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "災害拾得物に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_63.rss"
     distribution_service:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "炊き出し・物資配布に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_60.rss"
     bath_service:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "入浴サービスに関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_61.rss"
     shop_info:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "営業店舗に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_66.rss"
     medical_info:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "医療に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_59.rss"
     welfare_info:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "健康・福祉・介護に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_56.rss"
     education_info:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "学校・幼稚園・保育所に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_54.rss"
     environment_info:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "環境に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_57.rss"
     crime_prevention:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "防犯に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_58.rss"
     volunteer_support:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "ボランティアの支援を受けたい方への情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_64.rss"
     volunteer_job:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "ボランティア活動をしたい方への情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_65.rss"
     other_support:
-      type: ["georss", "life"]
+      type: ["map", "georss"]
+      group: "life"
       title: "その他の被災者支援に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_53.rss"
 #    weather:

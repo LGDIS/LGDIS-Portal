@@ -10,7 +10,11 @@
         }
       }).next().hide();
       <% if params[:action]=="map" -%>
-      $("#<%= params[:action] %>_<%= params[:id] %>").toggleClass("selected").next().show();
+        <% if @group.present? -%>
+          $("#<%= params[:action] %>_<%= @group %>").toggleClass("selected").next().show();
+        <% else -%>
+          $("#<%= params[:action] %>_<%= params[:id] %>").toggleClass("selected").next().show();
+        <% end -%>
       <% elsif params[:action]=="info" && params[:id].include?("request_") -%>
       $("#<%= params[:action] %>_request").toggleClass("selected").next().show();
       <% end -%>

@@ -1,4 +1,4 @@
-﻿<center><font color="#778899">最新情報</font></center><hr color="#4975d4" />
+<center><font color="#778899">最新情報</font></center><hr color="#4975d4" />
 
 ◆<%= ::CONF['news']['title'] %>
 <%= render :partial => '/refinery/news/items/recent_posts' %>
@@ -12,14 +12,5 @@
 <center><font color="#778899">石巻市リアルタイム情報</font></center><hr color="#4975d4" />
 <br />
 <dl>
-  <% ::CONF['additions']['data'].each_key do |id| -%>
-    <% if ::CONF['additions']['data'][id.to_s]['type'].include?("map") && (::CONF['additions']['data'][id.to_s]['type'].include?("georss") || ::CONF['additions']['data'][id.to_s]['type'].include?("georss_group")) -%>
-      <dt>◇<%= link_to ::CONF['additions']['data'][id.to_s]['title'], '/info/'+id.to_s %></dt>
-    <% end -%>
-  <% end -%>
-  <% ::CONF['additions']['data'].each_key do |id| -%>
-    <% if ::CONF['additions']['data'][id.to_s]['type'].include?("info_group") -%>
-      <dt>◇<%= link_to ::CONF['additions']['data'][id.to_s]['title'], '/info/'+id.to_s %></dt>
-    <% end -%>
-  <% end -%>
+  <%= raw mobile_menu %>
 </dl>
