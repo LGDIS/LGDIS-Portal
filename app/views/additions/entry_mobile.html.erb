@@ -4,14 +4,21 @@
   <center><font color="#778899"><b><%= ::CONF['additions']['data'][@id]['title'] %></b></font></center><hr color="#4975d4" />
 <% end -%>
 
-<% if @feed.status == 0 %>
+<% if @feed.status == 0 -%>
   <h3><%= raw @item.title %></h3>
   <hr />
   <dl>
+    <% if @item.content.present? -%>
     <dt>□詳細</dt>
       <dd><%= raw @item.content %></dd>
+    <% end -%>
+    <% if @item.link.present? -%>
+    <dt>□<%= link_to "リンク", @item.link, {:target => '_blank'} %></dt>
+    <% end -%>
+    <% if @item.updated.present? -%>
     <dt>□更新日</dt>
-      <dd><%= @item.updated %></dd>
+      <dd><%= raw @item.updated %></dd>
+    <% end -%>
   </dl>
 <% else -%>
   <h3>詳細情報が確認できませんでした。</h3>

@@ -4,7 +4,7 @@
   <ul>
     <% if @feed.status == 0 %>
       <% @items.each do |item| %>
-       <li><%= item.updated %><br /><%= link_to slice_list_title(item.title), '/info/'+item.id+'/'+item.entry_id %></li>
+       <li><%= item.updated %><br /><%= link_to slice_list_title(item.title), '/info/'+item.id+'/'+URI.escape( item.entry_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") ) %></li>
       <% end %>
     <% else %>
       <li><%= ::CONF['additions']['info']['status_' + @feed.status.to_s] %></li>

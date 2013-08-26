@@ -118,6 +118,7 @@
         <% if @feed.status == 0 -%>
           <% @feed.items.each do |item| -%>
             <h4 class="title"><%= item.title %></h4>
+            <% if item.link.present? -%><p class="link"><%= link_to_with_image item.link, "リンク" ,"nl" %></p><% end -%>
             <p><%= raw item.content %></p>
           <% end -%>
         <% else -%>

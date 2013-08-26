@@ -132,5 +132,10 @@ ul.help {
   div {
     width: 580px;
     margin: 0px auto;
+    p.link {
+      padding: 0 5px;
+      margin: 0;
+      text-align: right;
+    }
   }
 }
