@@ -4,10 +4,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="content-style-type" content="text/css">
   <title><%= Refinery::Core.site_name %></title>
-  <meta http-equiv="refresh" content="60">
 </head>
 <body>
 <p><b><%= Refinery::Core.site_name %></b></p>
 <%= yield %>
+<%= render '/refinery/javascripts' %>
 </body>
 </html>

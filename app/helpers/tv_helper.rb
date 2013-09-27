@@ -4,7 +4,8 @@ module TvHelper
     markers = ''
 
     html = '<td>'
-    html += '<table>'
+    html += '<div id="slider">'
+    html += '<table id="slide_contents">'
     if _feeds.status != 0
       html += '<tr><td>' + ::CONF['additions']['info']['status_'+_feeds.status.to_s] + '</td></tr>'
     else
@@ -20,16 +21,11 @@ module TvHelper
       end
     end
     html += '</table>'
+    html += '</div>'
     html += '</td>'
     html += '<td valign="top" align="center">'
     if markers.present?
-      if ::CONF['googlemaps']['clientid'].present? && ::CONF['googlemaps']['signature'].present?
-        html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap' + markers + '&sensor=false&client=' + ::CONF['googlemaps']['clientid'] + '&signature=' + ::CONF['googlemaps']['signature'] + '">'
-      elsif ::CONF['googlemaps']['apikey'].present?
-        html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap' + markers + '&sensor=false&key=' + ::CONF['googlemaps']['apikey'] + '">'
-      else
-        html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap' + markers + '&sensor=false">'
-      end
+      html += '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x360&maptype=roadmap'+ markers +'&sensor=false">'
     else
       html += '<img src="http://maps.googleapis.com/maps/api/staticmap?center=38.45,141.38&zoom=11&size=400x400&maptype=roadmap&sensor=false">'
     end
