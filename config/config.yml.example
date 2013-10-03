@@ -1,6 +1,6 @@
 ﻿# encoding: utf-8
 googlemaps:
-#「For Business」を利用：「clientid」と「signature」を指定
+##「For Business」を利用：「clientid」と「signature」を指定
 ##「Google Account」のKeyを利用：「apikey」を指定
   clientid: ""
   signature: ""
@@ -26,17 +26,20 @@ news:
 additions:
   info:
     status_0: ""
-#    status_1: "RSS情報が取得できませんでした。<br />少し時間を置いてから画面を更新してください。"
-    status_1: "現在、配信されている情報はありません。"
+    status_1: "RSS情報が取得できませんでした。 少し時間を置いてから画面を更新してください。"
     status_2: "現在、配信されている情報はありません。"
     status_3: "エラーが発生しました"
     page_size: 5
     page_size_mobile: 10
   tv:
-    number: 9
+## speed to scroll.higher value means low speed. default = 200
+    speed_scroll: 200
+## wait time[milliseconds] after the scroll. default = 3000 = 3sec.
+    after_scroll: 3000
+## wait time[milliseconds] when scroll is not necessary. default = 60000 = 1min.
+    no_scroll: 60000
     number_marquee: 3
     no_marquees: "現在、緊急の情報はありません。"
-    marker_color: ["gray","orange","blue","yellow","red","green","brown","purple","white"]
   map:
     noise_interval: 300
   data:
@@ -253,17 +256,6 @@ additions:
       group: "life"
       title: "その他の被災者支援に関する情報"
       rss: "http://localhost/plugin_assets/lgdis/atomfeeds/tracker_53.rss"
-#    weather:
-#      type: ["map", "georss_group"]
-#      title: "地震・津波・気象情報"
-#    quake_warning:
-#      type: ["georss", "weather"]
-#      title: "地震速報/津波情報"
-#      rss: ""
-#    weather_warning:
-#      type: ["georss", "weather"]
-#      title: "注意報・警報"
-#      rss: ""
     shelter:
       type: ["map", "fusiontable", "search", "draw"]
       title: "避難所"
@@ -359,31 +351,31 @@ additions:
             - ["地区5", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.350042,141.515379,13]]
             - ["地区6", [2,"1rKGK--K2cnLDuAHKw-jRpravhZWYE9UfikzJH04",38.387217,141.515479,13]]
           select3_14:
-#            - ["揺れやすさマップ（～震度4）", [31,"",38.422311,141.345955,12]]
+# - ["揺れやすさマップ（～震度4）", [31,"",38.422311,141.345955,12]]
             - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.422311,141.345955,12]]
             - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.422311,141.345955,12]]
             - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.422311,141.345955,12]]
             - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.422311,141.345955,12]]
           select3_15:
-#            - ["揺れやすさマップ（～震度4）", [31,"",38.552378,141.330505,12]]
+# - ["揺れやすさマップ（～震度4）", [31,"",38.552378,141.330505,12]]
             - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.552378,141.330505,12]]
             - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.552378,141.330505,12]]
             - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.552378,141.330505,12]]
-#            - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.552378,141.330505,12]]
+# - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.552378,141.330505,12]]
           select3_16:
-#            - ["揺れやすさマップ（～震度4）", [31,"",38.578685,141.477104,12]]
+# - ["揺れやすさマップ（～震度4）", [31,"",38.578685,141.477104,12]]
             - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.578685,141.477104,12]]
             - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.578685,141.477104,12]]
             - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.578685,141.477104,12]]
-#            - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.578685,141.477104,12]]
+# - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.578685,141.477104,12]]
           select3_17:
-#            - ["揺れやすさマップ（～震度4）", [31,"",38.502153,141.266304,12]]
+# - ["揺れやすさマップ（～震度4）", [31,"",38.502153,141.266304,12]]
             - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.502153,141.266304,12]]
             - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.502153,141.266304,12]]
             - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.502153,141.266304,12]]
-#            - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.502153,141.266304,12]]
+# - ["地域の危険度マップ（危険度5～7）", [42,"1WrIlNMJCrnQ71yqwPONtJXBhKI-RTZ4FnwGVcyk",38.502153,141.266304,12]]
           select3_18:
-#            - ["揺れやすさマップ（～震度4）", [31,"",38.302517,141.512467,12]]
+# - ["揺れやすさマップ（～震度4）", [31,"",38.302517,141.512467,12]]
             - ["揺れやすさマップ（震度5弱～震度6弱）", [32,"1Loo9xI8ANe1N-oNMOeT0lRUEG1eHZyyCeLIkeu8",38.302517,141.512467,12]]
             - ["揺れやすさマップ（震度6強～）", [33,"1-j1Vvm5vZsXRPYyuc7siynWyMvdfMT-m1nf3kzY",38.302517,141.512467,12]]
             - ["地域の危険度マップ（危険度1～4）", [41,"1Jfo8nDZyJaWJU-WgTh9boyrcIbj0V94tvRMSBCs",38.302517,141.512467,12]]

@@ -143,7 +143,7 @@ class AdditionsController < ApplicationController
         urls.push data
       end
     end
-    @feed.parse *urls, ::CONF['additions']['tv']['number']
+    @feed.parse *urls, 0
     render :layout => 'tv'
   end
 

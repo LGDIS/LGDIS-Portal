@@ -8,7 +8,7 @@
     <% if @items.any? %>
       <% @items.each do |item| %>
           <div class="title"><%= item.title %></div>
-          <div class="date"><%= item.publish_date.strftime(::CONF['time']['formats']['jp']) %></div>
+          <div class="date">発表日時：<%= item.publish_date.strftime(::CONF['time']['formats']['jp']) %></div>
           <div class="content"><%= raw item.body %></div>
       <% end %>
       <%= will_paginate @items %>

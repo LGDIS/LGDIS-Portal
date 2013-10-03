@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+}
+table, tr {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+td {
+  margin: 0;
+  border: 0;
+}
+#slider {
+  padding: 5px;
+}
+.no {
+  width: 50px;
+}
+.title {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.date {
+  width: 210px;
+  text-align: right;
+  word-break: normal;
+  word-wrap: normal;
+}
+.map {
+  width: 320px;
+  text-align: center;
+}

@@ -8,7 +8,7 @@
     <% if @feed.status.zero? %>
       <% @items.each do |item| %>
           <div class="title"><%= item.title %></div>
-          <% if item.updated.present? -%><div class="date"><%= item.updated %></div><% end %>
+          <% if item.updated.present? -%><div class="date">発表日時：<%= item.updated %></div><% end %>
           <% if item.link.present? -%><div class="link"><%= link_to_with_image item.link, "リンク" ,"nl" %></div><% end %>
           <div class="content"><%= raw item.content %></div>
       <% end %>
