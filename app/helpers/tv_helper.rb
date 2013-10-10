@@ -14,9 +14,9 @@ module TvHelper
       html += '<tr><td>' + ::CONF['additions']['info']['status_'+_feeds.status.to_s] + '</td></tr>'
     else
       _feeds.items.each.with_index(1) do |item, i|
-        html += '<tr><td>'
-        html += '<table><tr><td class="no" nowrap>No.' + i.to_s + '</td><td class="title"><b>' + item.title + '</b></td><td class="date" nowrap>発表日時：' + item.updated + '</td></tr></table>'
-        html += '</td></tr>'
+        html += '<tr><td class="title"><b>' + item.title + '</b></td></tr>'
+        html += '<tr><td class="date">発表日時：' + item.updated + '</td></tr>'
+        html += '<tr><td><br /></td></tr>'
         html += '<tr><td>'
         html += '<table><tr>'
         html += '<td>' + raw(item.content) + '</td>'

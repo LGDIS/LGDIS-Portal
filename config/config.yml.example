@@ -16,8 +16,11 @@ pages:
     news_number_mobile: 1
     additions_number: 10
     additions_number_mobile: 5
-    disp_length: 15
+    disp_length: 30
     disp_length_mobile: 8
+  menu:
+    twitter_id: ""
+    facebook_id: ""
 news:
   title: "お知らせ"
   no_items: "現在、公開されている情報はありません。"
@@ -34,6 +37,8 @@ additions:
   tv:
 ## speed to scroll.higher value means low speed. default = 200
     speed_scroll: 200
+## wait time[milliseconds] to scroll start. default = 3000 = 3sec.
+    before_scroll: 3000
 ## wait time[milliseconds] after the scroll. default = 3000 = 3sec.
     after_scroll: 3000
 ## wait time[milliseconds] when scroll is not necessary. default = 60000 = 1min.

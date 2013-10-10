@@ -1,6 +1,6 @@
 <% content_for :javascripts do %>
 <script type="text/javascript">
-var scrollBox, boxHeight, contentsHeight, duration;
+var scrollBox, boxHeight, contentsHeight, endpoint, duration;
 var margin = 20;
 $(document).ready(function(){
   scrollBox = $("#slider");
@@ -10,10 +10,15 @@ $(document).ready(function(){
     scrollBox.css("overflow","auto");
 
     contentsHeight = $("#slide_contents").outerHeight();
-    duration = (contentsHeight - boxHeight)*<%= ::CONF['additions']['tv']['speed_scroll'] %>
+    endpoint = contentsHeight - boxHeight + margin;
+    duration = endpoint * <%= ::CONF['additions']['tv']['speed_scroll'] %>;
 
-    scrollBox.animate({ scrollTop: (contentsHeight - boxHeight + margin) }, duration, "linear", function() {
-      setTimeout(function(){document.location.reload(true);}, <%= ::CONF['additions']['tv']['after_scroll'] %>);
+    $(function(){
+      setTimeout(function(){
+        scrollBox.animate({ scrollTop: endpoint }, duration, "linear", function() {
+          setTimeout(function(){document.location.reload(true);}, <%= ::CONF['additions']['tv']['after_scroll'] %>);
+        });
+      },<%= ::CONF['additions']['tv']['before_scroll'] %>);
     });
   }else{
     setTimeout(function(){document.location.reload(true);}, <%= ::CONF['additions']['tv']['no_scroll'] %>);

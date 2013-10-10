@@ -120,3 +120,14 @@
     </ul>
   </div>
 </div>
+<div class="wrap">
+  <div class="nav">
+    <ul class="navList">
+      <li class="disp"><%= link_to_with_image "http://lgdpf.disaster.city.ishinomaki.lg.jp/", "石巻市 パーソンファインダー" ,"nl" %></li>
+      <% if ::CONF['pages']['menu']['twitter_id'].present? -%><li class="disp"><%= link_to_with_image "https://twitter.com/" + ::CONF['pages']['menu']['twitter_id'], "石巻市 twitter" ,"nl" %></li><% end -%>
+      <% if ::CONF['pages']['menu']['facebook_id'].present? -%><li class="disp"><%= link_to_with_image "http://www.facebook.com/" + ::CONF['pages']['menu']['facebook_id'], "石巻市 facebook" ,"nl" %></li><% end -%>
+      <li class="disp"><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/", "石巻市 ホームページ" ,"nl" %></li>
+      <li class="disp"><%= link_to_with_image "http://www.pref.miyagi.jp/", "宮城県 ホームページ" ,"nl" %></li>
+    </ul>
+  </div>
+</div>

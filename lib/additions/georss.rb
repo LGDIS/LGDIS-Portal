@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Georss
   class Feeds
     require 'open-uri'
@@ -32,17 +33,17 @@ module Georss
             end
 
             if type.present?
-              entry_nodes.each do |entry_node|
+              entry_nodes.enum_for.with_index(1) do |entry_node, i|
                 entry = Entry.new
                 entry.id = data_id
                 entry.url = url
                 entry.type = type
+                entry.entry_no = i
 
                 if type == "atom1"
                   entry.entry_id = element(entry_node.at('./xmlns:id'))
                   entry.title = element(entry_node.at('./xmlns:title'))
-                  entry.updated = datetime(element(entry_node.at('./xmlns:updated')))
-                  entry.updated = datetime(element(entry_node.at('./xmlns:published'))) if entry.updated.empty?
+                  entry.updated = datetime(element(entry_node.at('./xmlns:updated'))).presence || datetime(element(entry_node.at('./xmlns:published')))
                   entry.content = element(entry_node.at('./xmlns:content'))
                   node = entry_node.at('./xmlns:link')
                   entry.link = node['href'].strip if node.present?
@@ -60,7 +61,6 @@ module Georss
                   entry.link = element(entry_node.at('./link'))
                   entry.entry_id = element(entry_node.at('./guid')) + entry.updated + entry.title.slice(0,10)
                 end
-#                if !entry.entry_id.empty? && !entry.title.empty? && !entry.updated.empty?
                 if entry.entry_id.present? && entry.title.present?
                   if namespaces.has_key?("xmlns:georss")
                     entry.point = element(entry_node.at('./georss:point',{'georss' => namespaces['xmlns:georss']}))
@@ -79,7 +79,7 @@ module Georss
         end
         if @items.size!=0
           @status = 0
-          @items = @items.sort { |a,b| b.updated <=> a.updated }
+          @items = @items.sort { |a, b| (a.updated == b.updated) ? a.entry_no <=> b.entry_no : b.updated <=> a.updated }
           size = @items.size
           @items.slice!(count..(size-1)) if !count.zero? && count < size
         else
@@ -99,7 +99,7 @@ module Georss
         parse *[data], 0
 
         if @status==0
-          #item = @items.find { |i| i.entry_id.start_with?(entry_id) }
+#          item = @items.find { |i| i.entry_id.start_with?(entry_id) }
           item = @items.find { |i| i.entry_id == entry_id }
           @items.clear
           if item.present?
@@ -142,7 +142,7 @@ module Georss
   end
 
   class Entry
-    attr_accessor :id, :url, :type, :entry_id, :title, :link, :content, :updated, :point, :line, :polygon
+    attr_accessor :id, :url, :type, :entry_no, :entry_id, :title, :link, :content, :updated, :point, :line, :polygon
   end
 
 end

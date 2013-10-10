@@ -2,25 +2,11 @@
   <%= render '/refinery/menu_right' -%>
 </section>
 <section id="body_content_right">
-  <div id="content_left">
+  <div id="wrap">
     <h3 class="title">最新情報</h3>
     <h4 class="title"><%= ::CONF['news']['title'] %></h4>
     <%= render :partial => '/refinery/news/items/recent_posts' %>
     <h4 class="title"><%= ::CONF['additions']['data']['disaster']['title'] %></h4>
     <%= raw recent_feed_list @feed %>
-  </div>
-  <div id="content_right">
-    <div id="twi">
-<a class="twitter-timeline"  href="https://twitter.com/IshiSaigai"  data-widget-id="341448488858554368" lang="ja">@IshiSaigai からのツイート</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </div>
-    <div class="wrap">
-      <div class="nav">
-        <ul class="navList">
-          <li class="disp"><%= link_to_with_image "http://lgdpf.disaster.city.ishinomaki.lg.jp/", "石巻市 パーソンファインダー" ,"nl" %></li>
-          <li class="disp"><%= link_to_with_image "http://www.city.ishinomaki.lg.jp/", "石巻市 ホームページ" ,"nl" %></li>
-          <li class="disp"><%= link_to_with_image "http://www.pref.miyagi.jp/", "宮城県 ホームページ" ,"nl" %></li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
