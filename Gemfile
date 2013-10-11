@@ -53,8 +53,8 @@ gem 'jquery-rails', '~> 2.0.0'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
+# This module provides common interface to HMAC functionality.
+gem 'ruby-hmac', '0.4.0' 
 
 # Refinery CMS
 gem 'refinerycms', '~> 2.0.0', :git => 'git://github.com/refinery/refinerycms.git', :branch => '2-0-stable'

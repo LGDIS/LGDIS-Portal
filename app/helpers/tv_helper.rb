@@ -1,11 +1,15 @@
 # encoding: utf-8
 module TvHelper
+  require 'hmac-sha1'
+
   def tv_feed_list(_feeds)
-    keys = ''
+    googleid = ''
+    googlekey = ''
     if ::CONF['googlemaps']['clientid'].present? && ::CONF['googlemaps']['signature'].present?
-      keys = '&client=' + ::CONF['googlemaps']['clientid'] + '&signature=' + ::CONF['googlemaps']['signature']
+      googleid = '&client=' + ::CONF['googlemaps']['clientid']
+      googlekey = ::CONF['googlemaps']['signature']
     elsif ::CONF['googlemaps']['apikey'].present?
-      keys = '&key=' + ::CONF['googlemaps']['apikey']
+      googleid = '&key=' + ::CONF['googlemaps']['apikey']
     end
 
     html = '<div id="slider">'
@@ -21,7 +25,8 @@ module TvHelper
         html += '<table><tr>'
         html += '<td>' + raw(item.content) + '</td>'
         if item.point.present?
-          html += '<td class="map"><img src="http://maps.googleapis.com/maps/api/staticmap?size=300x200&zoom=14&maptype=roadmap&markers=color:red%7C' + item.point.tr(" ", ",") + '&sensor=false' + keys + '"></td>'
+          url = 'http://maps.googleapis.com/maps/api/staticmap?size=300x200&zoom=14&maptype=roadmap&markers=color:red%7C' + item.point.tr(" ", ",") + '&sensor=false' + googleid
+          html += '<td class="map"><img src="' + signURL(url, googlekey) + '"></td>'
         end
         html += '</tr></table>'
         html += '</td></tr>'
@@ -33,5 +38,29 @@ module TvHelper
     html += '</table>'
     html += '</div>'
     html
+  end
+
+  def signURL(url, privateKey)
+    if privateKey.present?
+      parsedURL = URI.parse(url)
+      urlToSign = parsedURL.path + '?' + parsedURL.query
+
+      # Decode the private key
+      rawKey = Base64.decode64(privateKey.tr('-_','+/'))
+
+      # create a signature using the private key and the URL
+      sha1 = HMAC::SHA1.new(rawKey)
+      sha1 << urlToSign
+      rawSignature = sha1.digest()
+
+      # encode the signature into base64 for url use form.
+      signature =  Base64.encode64(rawSignature).tr('+/','-_')
+
+      # prepend the server and append the signature.
+      signedUrl = parsedURL.scheme + '://' + parsedURL.host + urlToSign + '&signature=' + signature
+      signedUrl
+    else
+      url
+    end
   end
 end
