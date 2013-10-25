@@ -2,7 +2,7 @@ class AdditionsController < ApplicationController
 
   def info
     require 'will_paginate/array'
-    @id = "#{params[:id]}"
+    @id = params[:id]
     @types = []
     unless ::CONF['additions']['data'].keys.include?(@id)
       error_404
@@ -40,8 +40,8 @@ class AdditionsController < ApplicationController
   end
 
   def entry
-    @id = "#{params[:id]}"
-    @entry_id = "#{params[:entry_id]}"
+    @id = params[:id]
+    @entry_id = params[:entry_id]
     @types = []
     unless ::CONF['additions']['data'].keys.include?(@id) && request.mobile?
       error_404
@@ -62,7 +62,7 @@ class AdditionsController < ApplicationController
     if request.mobile?
       error_404
     else
-      @id = "#{params[:id]}"
+      @id = params[:id]
       @group = ""
       @types = []
       unless ::CONF['additions']['data'].keys.include?(@id)
@@ -114,8 +114,8 @@ class AdditionsController < ApplicationController
     if request.mobile?
       error_404
     else
-      @id = "#{params[:id]}"
-      @item = "#{params[:item]}"
+      @id = params[:id]
+      @item = params[:item]
       unless ::CONF['additions']['data'].keys.include?(@id)
         error_404
       else
@@ -133,6 +133,19 @@ class AdditionsController < ApplicationController
   end
 
   def tv
+    @menu = params[:menu]
+    if @menu=="signage01"
+      @latest_id = params[:latest_id]
+      @latest_entry_id = params[:latest_entry_id]
+      @last_id = params[:last_id]
+      @last_entry_id = params[:last_entry_id]
+    else
+      @menu = "signage00"
+      @latest_id = ""
+      @latest_entry_id = ""
+      @last_id = ""
+      @last_entry_id = ""
+    end
     @items = Refinery::Marquees::Marquee.latest(::CONF['additions']['tv']['number_marquee'])
 
     @feed = ::Georss::Feeds.new
@@ -144,6 +157,31 @@ class AdditionsController < ApplicationController
       end
     end
     @feed.parse *urls, 0
+
+    if @menu=="signage01" && @feed.status==0
+      if @latest_id.present? && @latest_entry_id.present? && @last_id.present? && @last_entry_id.present? && (@feed.items[0].id == @latest_id || @feed.items[0].entry_id == @latest_entry_id)
+        #next
+        index = @feed.items.index { |i| i.id == @last_id && i.entry_id == @last_entry_id }
+        if index.present?
+          index = index + 1
+          index = 0 if @feed.items.size <= index
+        else
+          index = 0
+        end
+      else
+        #latest
+        index = 0
+      end
+      item = @feed.items[index]
+      @latest_id = @feed.items[0].id
+      @latest_entry_id = @feed.items[0].entry_id
+      @last_id = item.id
+      @last_entry_id = item.entry_id
+
+      @feed.items.clear
+      @feed.items.push item
+    end
+
     render :layout => 'tv'
   end
 

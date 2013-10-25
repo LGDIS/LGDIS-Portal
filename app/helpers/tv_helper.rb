@@ -2,7 +2,7 @@
 module TvHelper
   require 'hmac-sha1'
 
-  def tv_feed_list(_feeds)
+  def feed_list(_feeds)
     googleid = ''
     googlekey = ''
     if ::CONF['googlemaps']['clientid'].present? && ::CONF['googlemaps']['signature'].present?
@@ -62,5 +62,21 @@ module TvHelper
     else
       url
     end
+  end
+
+  def refresh_tag(_feeds, _menu, _latest_id, _latest_entry_id, _last_id, _last_entry_id)
+    if _menu=="signage01"
+      html = '<meta http-equiv="refresh" content="' + ::CONF['additions']['tv'][@menu]['refresh_page'].to_s + '; url=/' + _menu
+      if _feeds.status==0
+        html += '/' + URI.escape( _latest_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
+        html += '/' + URI.escape( _latest_entry_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
+        html += '/' + URI.escape( _last_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
+        html += '/' + URI.escape( _last_entry_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
+      end
+      html += '/">'
+    else
+      html = '<meta http-equiv="refresh" content="' + ::CONF['additions']['tv']['refresh_page'].to_s + '; url=/' + _menu + '/' + Time.now.to_i.to_s + '/">'
+    end
+    html
   end
 end

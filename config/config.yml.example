@@ -35,16 +35,21 @@ additions:
     page_size: 5
     page_size_mobile: 10
   tv:
-## speed to scroll.higher value means low speed. default = 200
+##  speed to scroll. higher value means low speed. default = 200
     speed_scroll: 200
-## wait time[milliseconds] to scroll start. default = 3000 = 3sec.
+##  wait time[milliseconds] to scroll start. default = 3000 = 3sec.
     before_scroll: 3000
-## wait time[milliseconds] after the scroll. default = 3000 = 3sec.
+##  wait time[milliseconds] after the scroll. default = 3000 = 3sec.
     after_scroll: 3000
-## wait time[milliseconds] when scroll is not necessary. default = 60000 = 1min.
+##  wait time[milliseconds] when scroll is not necessary. default = 60000 = 1min.
     no_scroll: 60000
+##  wait time[seconds] to refresh page. default = 600 = 10min.
+    refresh_page: 600
     number_marquee: 3
     no_marquees: "現在、緊急の情報はありません。"
+    signage01:
+##    wait time[seconds] to refresh page 'signage01'. default = 30
+      refresh_page: 30
   map:
     noise_interval: 300
   data:
