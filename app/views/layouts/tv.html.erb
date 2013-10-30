@@ -10,6 +10,6 @@
 <body>
 <p><b><%= Refinery::Core.site_name %></b></p>
 <%= yield %>
-<%= render '/refinery/javascripts' unless @menu=="signage01" %>
+<%= render '/refinery/javascripts' unless @menu=="signage01" || @menu=="signage" %>
 </body>
 </html>
