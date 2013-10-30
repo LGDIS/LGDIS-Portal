@@ -65,8 +65,8 @@ module TvHelper
   end
 
   def refresh_tag(_feeds, _menu, _latest_id, _latest_entry_id, _last_id, _last_entry_id)
-    if _menu=="signage01"
-      html = '<meta http-equiv="refresh" content="' + ::CONF['additions']['tv'][@menu]['refresh_page'].to_s + '; url=/' + _menu
+    if _menu=="signage01" || _menu=="signage"
+      html = '<meta http-equiv="refresh" content="' + ::CONF['additions']['tv']['signage01']['refresh_page'].to_s + '; url=/' + _menu
       if _feeds.status==0
         html += '/' + URI.escape( _latest_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
         html += '/' + URI.escape( _latest_entry_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
