@@ -158,7 +158,7 @@ class AdditionsController < ApplicationController
     end
     @feed.parse *urls, 0
 
-    if @menu=="signage01" && @feed.status==0
+    if (@menu=="signage01" || @menu=="signage") && @feed.status==0
       if @latest_id.present? && @latest_entry_id.present? && @last_id.present? && @last_entry_id.present? && (@feed.items[0].id == @latest_id || @feed.items[0].entry_id == @latest_entry_id)
         #next
         index = @feed.items.index { |i| i.id == @last_id && i.entry_id == @last_entry_id }
