@@ -134,7 +134,7 @@ class AdditionsController < ApplicationController
 
   def tv
     @menu = params[:menu]
-    if @menu=="signage01"
+    if @menu == "signage01" || @menu == "signage"
       @latest_id = params[:latest_id]
       @latest_entry_id = params[:latest_entry_id]
       @last_id = params[:last_id]
