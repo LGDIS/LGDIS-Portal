@@ -36,4 +36,4 @@ $(document).ready(function(){
     <%= ::CONF['additions']['tv']['no_marquees'] %>
   <% end -%>
 </font></h1></marquee></p>
-<%= raw feed_list @feed -%>
+<%= raw feed_list @feed, @menu, @last_page -%>

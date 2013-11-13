@@ -134,17 +134,21 @@ class AdditionsController < ApplicationController
 
   def tv
     @menu = params[:menu]
-    if @menu == "signage01" || @menu == "signage"
+    if @menu=="signage01" || @menu == "signage"
+      @menu = "signage01"
       @latest_id = params[:latest_id]
       @latest_entry_id = params[:latest_entry_id]
       @last_id = params[:last_id]
       @last_entry_id = params[:last_entry_id]
+      @last_page = params[:last_page].presence || "0"
+      @last_page = @last_page.to_i
     else
       @menu = "signage00"
       @latest_id = ""
       @latest_entry_id = ""
       @last_id = ""
       @last_entry_id = ""
+      @last_page = ""
     end
     @items = Refinery::Marquees::Marquee.latest(::CONF['additions']['tv']['number_marquee'])
 
@@ -158,25 +162,39 @@ class AdditionsController < ApplicationController
     end
     @feed.parse *urls, 0
 
-    if (@menu=="signage01" || @menu=="signage") && @feed.status==0
-      if @latest_id.present? && @latest_entry_id.present? && @last_id.present? && @last_entry_id.present? && (@feed.items[0].id == @latest_id || @feed.items[0].entry_id == @latest_entry_id)
-        #next
+    if @menu=="signage01" && @feed.status==0
+      if @latest_id.present? && @latest_entry_id.present? && @last_id.present? && @last_entry_id.present? && @last_page.present? && (@feed.items[0].id == @latest_id || @feed.items[0].entry_id == @latest_entry_id)
         index = @feed.items.index { |i| i.id == @last_id && i.entry_id == @last_entry_id }
         if index.present?
-          index = index + 1
-          index = 0 if @feed.items.size <= index
+          data = @feed.items[index].content.split(/#{::CONF['additions']['tv'][@menu]['break_word']}/i)
+          if @last_page==0 || data.size <= @last_page * ::CONF['additions']['tv'][@menu]['break_count']
+            #next item + page clear
+            index = index + 1
+            index = 0 if @feed.items.size <= index
+            @last_page = 0
+          else
+            #next page
+            @last_page = @last_page + 1
+          end
         else
+          #latest
           index = 0
+          @last_page = 0
         end
       else
         #latest
         index = 0
+        @last_page = 0
       end
       item = @feed.items[index]
       @latest_id = @feed.items[0].id
       @latest_entry_id = @feed.items[0].entry_id
       @last_id = item.id
       @last_entry_id = item.entry_id
+      if @last_page==0
+        data = item.content.split(/#{::CONF['additions']['tv'][@menu]['break_word']}/i)
+        @last_page=1 if data.size > ::CONF['additions']['tv'][@menu]['break_count']
+      end
 
       @feed.items.clear
       @feed.items.push item

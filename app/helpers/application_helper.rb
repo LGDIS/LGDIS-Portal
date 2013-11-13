@@ -79,4 +79,8 @@ module ApplicationHelper
     end
     url
   end
+
+  def changebr(str)
+    ERB::Util.html_escape(str).gsub(/\r\n|\r|\n/, "<br />")
+  end 
 end

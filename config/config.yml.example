@@ -50,6 +50,9 @@ additions:
     signage01:
 ##    wait time[seconds] to refresh page 'signage01'. default = 30
       refresh_page: 30
+##    count of 'break_word' to break the page. default = 5. 'break_word' is pattern of Regexp. it must be enclosed by single-quote. and, don't use '()' in it.
+      break_count: 2
+      break_word: '\<br \/\>|\<br\>'
   map:
     noise_interval: 300
   data:

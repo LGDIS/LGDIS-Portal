@@ -1,10 +1,10 @@
-LgdisPortal::Application.routes.draw do
+﻿LgdisPortal::Application.routes.draw do
   # add
   match 'info/:id', :to => 'additions#info'
   match 'info/:id/:entry_id', :to => 'additions#entry', :constraints => { :entry_id => /[^\/]+/ }
   match 'map/:id', :to => 'additions#map'
   match 'help/:id/:item', :to => 'additions#help'
-  match ':menu(/:latest_id(/:latest_entry_id(/:last_id(/:last_entry_id))))' => 'additions#tv', :constraints => { :menu => /signage[0-1]{0,2}/, :latest_entry_id => /[^\/]+/, :last_entry_id => /[^\/]+/ }
+  match ':menu(/:latest_id(/:latest_entry_id(/:last_id(/:last_entry_id(/:last_page)))))' => 'additions#tv', :constraints => { :menu => /signage[0-1]{0,2}/, :latest_entry_id => /[^\/]+/, :last_entry_id => /[^\/]+/ }
 
   # This line mounts Refinery's routes at the root of your application.
   # This means, any requests to the root URL of your application will go to Refinery::PagesController#home.

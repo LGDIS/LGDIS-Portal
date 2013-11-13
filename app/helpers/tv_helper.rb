@@ -2,7 +2,7 @@
 module TvHelper
   require 'hmac-sha1'
 
-  def feed_list(_feeds)
+  def feed_list(_feeds, _menu, _page)
     googleid = ''
     googlekey = ''
     if ::CONF['googlemaps']['clientid'].present? && ::CONF['googlemaps']['signature'].present?
@@ -17,16 +17,28 @@ module TvHelper
     if _feeds.status != 0
       html += '<tr><td>' + ::CONF['additions']['info']['status_'+_feeds.status.to_s] + '</td></tr>'
     else
+      data = ''
+      content = ''
+      title = ''
       _feeds.items.each.with_index(1) do |item, i|
-        html += '<tr><td class="title"><b>' + item.title + '</b></td></tr>'
+        title = '<b>' + item.title + '</b>'
+        if _menu=="signage01" && _page != 0
+          data = item.content.split(/#{::CONF['additions']['tv'][@menu]['break_word']}/i)
+          content = data[(::CONF['additions']['tv'][@menu]['break_count']*(_page-1))..((::CONF['additions']['tv'][@menu]['break_count']*_page)-1)].join("<br />")
+          title += ' （' + _page.to_s + '/' + (data.size.fdiv(::CONF['additions']['tv'][@menu]['break_count']).ceil).to_s + '）'
+        else
+          content = item.content
+        end
+
+        html += '<tr><td class="title">' + title + '</td></tr>'
         html += '<tr><td class="date">発表日時：' + item.updated + '</td></tr>'
         html += '<tr><td><br /></td></tr>'
         html += '<tr><td>'
         html += '<table><tr>'
-        html += '<td>' + raw(item.content) + '</td>'
+        html += '<td valign="top">' + raw(content) + '</td>'
         if item.point.present?
           url = 'http://maps.googleapis.com/maps/api/staticmap?size=300x200&zoom=14&maptype=roadmap&markers=color:red%7C' + item.point.tr(" ", ",") + '&sensor=false' + googleid
-          html += '<td class="map"><img src="' + signURL(url, googlekey) + '"></td>'
+          html += '<td class="map" valign="top"><img src="' + signURL(url, googlekey) + '"></td>'
         end
         html += '</tr></table>'
         html += '</td></tr>'
@@ -64,14 +76,15 @@ module TvHelper
     end
   end
 
-  def refresh_tag(_feeds, _menu, _latest_id, _latest_entry_id, _last_id, _last_entry_id)
-    if _menu=="signage01" || _menu=="signage"
-      html = '<meta http-equiv="refresh" content="' + ::CONF['additions']['tv']['signage01']['refresh_page'].to_s + '; url=/' + _menu
+  def refresh_tag(_feeds, _menu, _latest_id, _latest_entry_id, _last_id, _last_entry_id, _last_page)
+    if _menu=="signage01"
+      html = '<meta http-equiv="refresh" content="' + ::CONF['additions']['tv'][@menu]['refresh_page'].to_s + '; url=/' + _menu
       if _feeds.status==0
         html += '/' + URI.escape( _latest_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
         html += '/' + URI.escape( _latest_entry_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
         html += '/' + URI.escape( _last_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
         html += '/' + URI.escape( _last_entry_id, Regexp.new("[^#{URI::PATTERN::ALNUM}]") )
+        html += '/' + _last_page.to_s
       end
       html += '/">'
     else
