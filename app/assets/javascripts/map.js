@@ -76,11 +76,10 @@ var myPolygon = new google.maps.Polygon;
         ]
       };
       content.push('<p>浸水深</p>');
-      content.push('<p><div class="color polygonBlue"></div>1.0m未満</p>');
-      content.push('<p><div class="color polygonLtblu"></div>1.0m～2.0m</p>');
-      content.push('<p><div class="color polygonLtgrn"></div>2.0m～3.0m</p>');
-      content.push('<p><div class="color polygonYellow"></div>3.0m～4.0m</p>');
-      content.push('<p><div class="color polygonOrange"></div>4.0m～5.0m</p>');
+      content.push('<p><div class="color polygonBlue"></div>0.5m未満</p>');
+      content.push('<p><div class="color polygonLtblu"></div>0.5m～1.0m</p>');
+      content.push('<p><div class="color polygonLtgrn"></div>1.0m～2.0m</p>');
+      content.push('<p><div class="color polygonYellow"></div>2.0m～5.0m</p>');
       content.push('<p><div class="color polygonRed"></div>5.0m以上</p>');
     }else if(type==31){
       prop = {
