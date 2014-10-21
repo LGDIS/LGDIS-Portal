@@ -62,8 +62,11 @@ module Georss
                   entry.entry_id = element(entry_node.at('./guid')) + entry.updated + entry.title.slice(0,10)
                 end
                 if entry.entry_id.present? && entry.title.present?
-                  if namespaces.has_key?("xmlns:georss")
-                    entry.point = element(entry_node.at('./georss:point',{'georss' => namespaces['xmlns:georss']}))
+                  if namespaces.has_key?("xmlns:georss")                    
+                    entry.point = []
+                    entry_node.xpath('./georss:point',{'georss' => namespaces['xmlns:georss']}).each do |geo_point|
+                      entry.point << element(geo_point)
+                    end
                     entry.line = element(entry_node.at('./georss:line',{'georss' => namespaces['xmlns:georss']}))
                     entry.polygon = element(entry_node.at('./georss:polygon',{'georss' => namespaces['xmlns:georss']}))
                   end

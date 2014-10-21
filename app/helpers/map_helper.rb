@@ -6,7 +6,7 @@ module MapHelper
       html += 'putRssMarkers();' + "\n"
       if _feeds.status == 0
         _feeds.items.each do |item|
-          if item.point.present?
+          if item.point.join.present?
             s = ''
             if item.title.present?
               s += '<div style="font-family: Arial, sans-serif; font-size: small">'
@@ -14,7 +14,10 @@ module MapHelper
               s += '<div><p>' + item_escape(item.content) + '</p></div>' if item.content.present?
               s += '</div>'
             end
-            html += 'setRssMarker(' + item.point.tr(" ", ",") + ', \'' + s + '\');' + "\n"
+            item.point.each do |geo_point|
+              #html += 'setRssMarker(' + item.point.tr(" ", ",") + ', \'' + s + '\');' + "\n"
+              html += 'setRssMarker(' + geo_point.tr(" ", ",") + ', \'' + s + '\');' + "\n"
+            end
           end
         end
       end

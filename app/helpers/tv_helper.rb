@@ -36,8 +36,13 @@ module TvHelper
         html += '<tr><td>'
         html += '<table><tr>'
         html += '<td valign="top">' + raw(content) + '</td>'
-        if item.point.present?
-          url = 'http://maps.googleapis.com/maps/api/staticmap?size=300x200&zoom=14&maptype=roadmap&markers=color:red%7C' + item.point.tr(" ", ",") + '&sensor=false' + googleid
+        if item.point.join.present?
+          geo_points = ''
+          item.point.each do |geo_point|
+            Rails.logger.info(geo_point.tr(" ", ","))
+            geo_points += '&markers=color:red%7C' + geo_point.tr(" ", ",")
+          end
+          url = 'http://maps.googleapis.com/maps/api/staticmap?size=300x200&zoom=14&maptype=roadmap' + geo_points + '&sensor=false' + googleid
           html += '<td class="map" valign="top"><img src="' + signURL(url, googlekey) + '"></td>'
         end
         html += '</tr></table>'
