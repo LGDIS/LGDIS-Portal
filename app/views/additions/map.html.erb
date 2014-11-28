@@ -82,7 +82,9 @@
       住所を入力して検索ボタンをクリックするとその場所の地図を表示します。<br />
       <%= text_field_tag("search_address") %> <%= submit_tag "検索", :onclick => ("searchAddress();"), :name => "sa", :type => "button" %>
     </p>
-    <h3 class="title">目標物・施設から探す</h3>
+    <h3 class="title">目標物・施設から探す<br>
+    <font size="1">※Googleの検索条件に依存するため、検索結果が表示されない、複数表示される場合があります。<br>
+    ※施設名が検索されない場合、単語と単語の間にスペースを入れてください。単語間にスペースを入れるとAND検索となります。</font></h3>
     <p>
       施設名から検索可能です。<br />
       <%= text_field_tag("search_place") %> <%= submit_tag "検索", :onclick => ("searchPlace();"), :name => "sp", :type => "button" %>
